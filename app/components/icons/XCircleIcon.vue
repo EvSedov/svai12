@@ -1,13 +1,6 @@
-<script setup lang="ts">
-defineProps<{
-    isOpen: boolean;
-}>();
-</script>
-
 <template>
     <svg
-        class="h-5 w-5 text-brand transition-transform duration-200"
-        :class="{ 'rotate-180 transform': isOpen }"
+        class="h-6 w-6 text-red-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -16,7 +9,7 @@ defineProps<{
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M19 9l-7 7-7-7"
+            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
         />
     </svg>
 </template>

@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import { Button } from '@/components/atoms/ui/button';
+import { inject } from "vue";
+import { Button } from "@/components/ui/button";
+const openOrderModal = inject("openOrderModal") as () => void;
 </script>
 
 <template>
-    <div class="bg-linear-to-r from-[#B16303] to-[#FF8D00] py-[11px]">
+    <div class="bg-[#FF8D00] py-[11px]">
         <div class="discount mx-auto flex-col xl:flex-row">
             <p
                 class="mb-2 text-center font-[Commissioner] text-xl/5.5 font-bold tracking-normal text-white uppercase xl:mb-0"
             >
-                Бесплатный выезд и расчёт стоимости!
+                Скидка 10% на первый заказ!
             </p>
             <Button
-                as="a"
-                href="tel:+79021091101"
                 class="m-0 ml-[11.6px] h-[25px] bg-white px-[10px] py-0 text-[10px] text-[#2C2C2C] hover:bg-gray-300"
-            >Позвонить</Button>
+                @click="openOrderModal"
+                >Сделать заказ</Button
+            >
         </div>
     </div>
 </template>

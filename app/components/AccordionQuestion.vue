@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AccordionToggleIcon from '@/components/atoms/AccordionToggleIcon.vue';
+import AccordionToggleIcon from '@/components/AccordionToggleIcon.vue';
 
 defineProps<{
     question: string;

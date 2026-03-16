@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AccordionQuestion from '@/components/molecules/AccordionQuestion.vue';
-import AccordionAnswer from '@/components/molecules/AccordionAnswer.vue';
+import AccordionQuestion from '@/components/AccordionQuestion.vue';
+import AccordionAnswer from '@/components/AccordionAnswer.vue';
 
 defineProps<{
     question: string;

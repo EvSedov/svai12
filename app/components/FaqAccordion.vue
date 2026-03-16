@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import AccordionHeader from '@/components/atoms/AccordionHeader.vue';
-import AccordionItem from '@/components/molecules/AccordionItem.vue';
+import AccordionHeader from '@/components/AccordionHeader.vue';
+import AccordionItem from '@/components/AccordionItem.vue';
 
 const props = defineProps<{
     items: Array<{

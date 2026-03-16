@@ -11,6 +11,15 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
+  components: {
+    dirs: [
+      {
+        path: '~/components',
+        extensions: ['vue'],
+      },
+    ],
+  },
+
   typescript: {
     strict: true,
   },

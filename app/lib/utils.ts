@@ -4,3 +4,16 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
+
+export const scrollToSection = (targetId: string) => {
+    if (targetId) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+        }
+    }
+};

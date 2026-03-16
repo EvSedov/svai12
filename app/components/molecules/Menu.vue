@@ -8,6 +8,15 @@ import {
     NavigationMenuContent,
 } from '@/components/atoms/ui/navigation-menu'
 
+const navItems = [
+    { label: 'Главная', href: '/' },
+    { label: 'О нас', href: '/about' },
+    { label: 'Примеры работ', href: '/portfolio' },
+    { label: 'Отзывы', href: '/reviews' },
+    { label: 'Контакты', href: '/contacts' },
+    { label: 'Вопросы/Ответы', href: '/faq' },
+]
+
 const catalogItems = [
     { label: 'Сваи 57 мм', href: '/catalog/57' },
     { label: 'Сваи 76 мм', href: '/catalog/76' },
@@ -15,44 +24,52 @@ const catalogItems = [
     { label: 'Сваи 108 мм', href: '/catalog/108' },
     { label: 'Сваи 133 мм', href: '/catalog/133' },
 ]
+
+const route = useRoute()
+const isCatalogActive = computed(() => route.path.startsWith('/catalog'))
+
+const linkClass = 'px-3 py-2 text-sm text-content-primary hover:text-brand transition-colors'
+const activeLinkClass = 'font-bold text-content-primary'
 </script>
 
 <template>
     <NavigationMenu>
-        <NavigationMenuList class="gap-1">
-            <NavigationMenuItem>
+        <NavigationMenuList class="gap-0">
+
+            <!-- Простые пункты -->
+            <NavigationMenuItem v-for="item in navItems.slice(0, 2)" :key="item.href">
                 <NavigationMenuLink as-child>
-                    <NuxtLink to="/" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        Главная
+                    <NuxtLink
+                        :to="item.href"
+                        :class="linkClass"
+                        :exact-active-class="activeLinkClass"
+                    >
+                        {{ item.label }}
                     </NuxtLink>
                 </NavigationMenuLink>
             </NavigationMenuItem>
 
+            <!-- Каталог с дропдауном -->
             <NavigationMenuItem>
-                <NavigationMenuLink as-child>
-                    <NuxtLink to="/about" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        О нас
-                    </NuxtLink>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-                <NavigationMenuTrigger class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand">
+                <NavigationMenuTrigger
+                    :class="[linkClass, isCatalogActive && activeLinkClass]"
+                >
                     Каталог винтовых свай
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <ul class="grid w-48 gap-1 p-2">
+                    <ul class="grid w-52 gap-0.5 p-2">
                         <li v-for="item in catalogItems" :key="item.href">
                             <NavigationMenuLink as-child>
                                 <NuxtLink
                                     :to="item.href"
                                     class="block px-3 py-2 text-sm text-content-primary hover:text-brand hover:bg-brand-light rounded-md transition-colors"
+                                    exact-active-class="font-semibold text-brand"
                                 >
                                     {{ item.label }}
                                 </NuxtLink>
                             </NavigationMenuLink>
                         </li>
-                        <li>
+                        <li class="border-t border-border-light mt-1 pt-1">
                             <NavigationMenuLink as-child>
                                 <NuxtLink
                                     to="/catalog"
@@ -66,37 +83,19 @@ const catalogItems = [
                 </NavigationMenuContent>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
+            <!-- Остальные пункты -->
+            <NavigationMenuItem v-for="item in navItems.slice(2)" :key="item.href">
                 <NavigationMenuLink as-child>
-                    <NuxtLink to="/portfolio" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        Примеры работ
+                    <NuxtLink
+                        :to="item.href"
+                        :class="linkClass"
+                        :exact-active-class="activeLinkClass"
+                    >
+                        {{ item.label }}
                     </NuxtLink>
                 </NavigationMenuLink>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
-                <NavigationMenuLink as-child>
-                    <NuxtLink to="/reviews" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        Отзывы
-                    </NuxtLink>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-                <NavigationMenuLink as-child>
-                    <NuxtLink to="/contacts" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        Контакты
-                    </NuxtLink>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-                <NavigationMenuLink as-child>
-                    <NuxtLink to="/faq" class="px-3 py-2 text-sm font-medium text-content-primary hover:text-brand transition-colors">
-                        Вопросы/Ответы
-                    </NuxtLink>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
         </NavigationMenuList>
     </NavigationMenu>
 </template>

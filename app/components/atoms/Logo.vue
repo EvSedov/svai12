@@ -1,6 +1,12 @@
 <template>
-    <!-- TODO: Заменить на логотип svai12.ru из Figma -->
-    <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl text-content-primary">
-        <span class="text-main-blue">СВАЙ</span><span>12</span>
+    <NuxtLink to="/" class="shrink-0 inline-flex">
+        <!-- Логотип из Figma: public/images/logo.svg -->
+        <img
+            src="/images/logo.svg"
+            alt="сваи12.рф — винтовые сваи"
+            width="160"
+            height="48"
+            class="h-10 w-auto object-contain"
+        />
     </NuxtLink>
 </template>

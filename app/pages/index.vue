@@ -52,6 +52,9 @@ useHead({
         <!-- Портфолио -->
         <OrganismsSectionsPortfolio />
 
+        <!-- Контакты + FAQ -->
+        <OrganismsSectionsContactInfo />
+
         <!-- CTA-полоса -->
         <section class="bg-brand py-12">
             <div class="container mx-auto px-4 text-center">

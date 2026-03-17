@@ -40,201 +40,120 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="h-auto bg-[#FF8D00]">
-        <div
-            class="relative mx-auto"
-            :style="{
-                minHeight: containerMinHeight,
-                width: containerWidth,
-            }"
-        >
-            <div
-                id="how-we-work"
-                ref="whiteCardRef"
-                class="absolute top-[-120px] flex max-w-[1166px] flex-col items-center gap-4 rounded-md bg-white py-9 shadow-lg"
-            >
+    <div class="h-auto bg-brand">
+        <div class="relative mx-auto" :style="{
+            minHeight: containerMinHeight,
+            width: containerWidth,
+        }">
+            <div id="how-we-work" ref="whiteCardRef"
+                class="absolute -top-30 flex max-w-291.5 flex-col items-center gap-4 rounded-md bg-white py-9 shadow-lg">
                 <div class="flex flex-col">
-                    <h2
-                        class="mb-10 text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]"
-                    >
-                        Как мы работаем?
+                    <h2 class="mb-10 text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]">
+                        Что вы получаете работая с нами?
                     </h2>
                     <div
-                        class="grid grid-cols-[276px] justify-center md:grid-cols-[276px_276px] md:gap-4 xl:grid-cols-[276px_276px_276px_276px]"
-                    >
-                        <div
-                            class="relative flex h-[196px] w-[276px] flex-col items-center justify-center"
-                        >
-                            <div
-                                class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF8D00]"
-                            >
-                                <span class="text-2xl/[28px] text-white"
-                                    >1</span
-                                >
+                        class="grid grid-cols-[276px] justify-center md:grid-cols-[276px_276px] md:gap-4 xl:grid-cols-[276px_276px_276px_276px]">
+                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
+                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
+                                <span class="text-2xl/[28px] text-white">1</span>
                             </div>
-                            <div
-                                class="flex h-[136px] w-[228px] items-start justify-center rounded-3xl pt-14 shadow-md"
-                            >
-                                <span
-                                    class="text-center text-sm/relaxed text-black/80"
-                                    >Оставляете заявку <br />
-                                    на сайте/звоните или пишите на прямую</span
-                                >
+                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
+                                <span class="text-center text-sm/relaxed text-black/80">Оставляете заявку <br />
+                                    на сайте/звоните или пишите на прямую</span>
                             </div>
                         </div>
-                        <div
-                            class="relative flex h-[196px] w-[276px] flex-col items-center justify-center"
-                        >
-                            <div
-                                class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF8D00]"
-                            >
-                                <span class="text-2xl/[28px] text-white"
-                                    >2</span
-                                >
+                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
+                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
+                                <span class="text-2xl/[28px] text-white">2</span>
                             </div>
-                            <div
-                                class="flex h-[136px] w-[228px] items-start justify-center rounded-3xl pt-14 shadow-md"
-                            >
-                                <span
-                                    class="text-center text-sm/relaxed text-black/80"
-                                    >Обговариваем нюансы, согласовываем макеты и
+                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
+                                <span class="text-center text-sm/relaxed text-black/80">Обговариваем нюансы,
+                                    согласовываем макеты и
                                     сроки
                                 </span>
                             </div>
                         </div>
-                        <div
-                            class="relative flex h-[196px] w-[276px] flex-col items-center justify-center"
-                        >
-                            <div
-                                class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF8D00]"
-                            >
-                                <span class="text-2xl/[28px] text-white"
-                                    >3</span
-                                >
+                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
+                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
+                                <span class="text-2xl/[28px] text-white">3</span>
                             </div>
-                            <div
-                                class="flex h-[136px] w-[228px] items-start justify-center rounded-3xl pt-14 shadow-md"
-                            >
-                                <span
-                                    class="text-center text-sm/relaxed text-black/80"
-                                    >Мы сообщаем о готовности</span
-                                >
+                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
+                                <span class="text-center text-sm/relaxed text-black/80">Мы сообщаем о готовности</span>
                             </div>
                         </div>
-                        <div
-                            class="relative flex h-[196px] w-[276px] flex-col items-center justify-center"
-                        >
-                            <div
-                                class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF8D00]"
-                            >
-                                <span class="text-2xl/[28px] text-white"
-                                    >4</span
-                                >
+                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
+                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
+                                <span class="text-2xl/[28px] text-white">4</span>
                             </div>
-                            <div
-                                class="flex h-[136px] w-[228px] items-start justify-center rounded-3xl pt-14 shadow-md"
-                            >
-                                <span
-                                    class="text-center text-sm/relaxed text-black/80"
-                                    >Вы забираете готовый заказ в офисе /
-                                    оформляем доставку</span
-                                >
+                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
+                                <span class="text-center text-sm/relaxed text-black/80">Вы забираете готовый заказ в
+                                    офисе /
+                                    оформляем доставку</span>
                             </div>
                         </div>
                     </div>
-                    <span class="text-center text-sm font-semibold text-black"
-                        >* Оплата осуществляется на стадии согласования
-                        макета</span
-                    >
+                    <span class="text-center text-sm font-semibold text-black">* Оплата осуществляется на стадии
+                        согласования
+                        макета</span>
                 </div>
                 <div class="mt-10 flex w-full flex-col gap-10">
-                    <h2
-                        class="text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]"
-                    >
+                    <h2 class="text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]">
                         Что вы получаете работая с нами?
                     </h2>
                     <div
-                        class="grid grid-cols-[362px] justify-center md:grid-cols-[362px_362px] md:gap-5 xl:grid-cols-[362px_362px_362px]"
-                    >
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-16"
-                        >
-                            <img
-                                src="/icons/container-1.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        class="grid grid-cols-[362px] justify-center md:grid-cols-[362px_362px] md:gap-5 xl:grid-cols-[362px_362px_362px]">
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-16">
+                            <img src="/icons/container-1.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Библиотека компонентов и дизайнерских бумаг
+                                Точный расчёт и проектирование
                             </p>
                         </div>
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-8"
-                        >
-                            <img
-                                src="/icons/container-2.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
+                            <img src="/icons/container-2.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Прозрачные цены без скрытых коммиссий и переплат
+                                Быстрые сроки монтажа
+
                             </p>
                         </div>
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-10"
-                        >
-                            <img
-                                src="/icons/container-3.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
+                            <img src="/icons/container-3.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Собственное производство и студия дизайна
+                                Прозрачная стоимость
                             </p>
                         </div>
 
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-18"
-                        >
-                            <img
-                                src="/icons/container-4.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-18">
+                            <img src="/icons/container-4.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Доставка в <br />
-                                любую точку России
+                                Современное<br />
+                                оборудование
                             </p>
                         </div>
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-8"
-                        >
-                            <img
-                                src="/icons/container-5.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
+                            <img src="/icons/container-5.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Скидки для рекламных <br />
-                                агентств и
-                                <span class="underline"
-                                    >постоянных клиентов</span
-                                >
+                                Гарантия качества и<br />
+                                надёжность
                             </p>
                         </div>
-                        <div
-                            class="flex h-[144px] w-[362px] flex-col items-center justify-between px-10"
-                        >
-                            <img
-                                src="/icons/container-6.png"
-                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать"
-                            />
+                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
+                            <img src="/icons/container-6.png"
+                                alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
-                                Любые способы оплаты заказов
-                                <span class="text-[#FF8D00]/45"
-                                    >(даже натурой)</span
-                                >
+                                Монтаж в любое<br />
+                                время года
+                                <span class="text-brand/45">(даже натурой)</span>
                             </p>
                         </div>
                     </div>

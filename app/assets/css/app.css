@@ -1,20 +1,121 @@
 @font-face {
-    font-family: "Commissioner";
-    src: local("Commissioner"), url("/fonts/Commissioner-Regular.ttf") format("TrueType");
-    font-weight: 400;
-    font-display: swap;
+  font-family: "Commissioner";
+  src:
+    local("Commissioner"),
+    url("/fonts/commissioner/Commissioner-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "Commissioner";
-    src: local("Commissioner"), url("/fonts/Commissioner-SemiBold.ttf") format("TrueType");
-    font-weight: 500;
-    font-display: swap;
+  font-family: "Commissioner";
+  src:
+    local("Commissioner SemiBold"),
+    url("/fonts/commissioner/Commissioner-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "Commissioner";
-    src: local("Commissioner-Bold"), url("/fonts/Commissioner-Bold.ttf") format("TrueType");
-    font-weight: 700;
-    font-display: swap;
+  font-family: "Commissioner";
+  src:
+    local("Commissioner SemiBold"),
+    url("/fonts/commissioner/Commissioner-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Commissioner";
+  src:
+    local("Commissioner Bold"),
+    url("/fonts/commissioner/Commissioner-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src:
+    local("Montserrat Light"),
+    url("/fonts/montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src:
+    local("Montserrat Regular"),
+    url("/fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src:
+    local("Montserrat Medium"),
+    url("/fonts/montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src:
+    local("Montserrat SemiBold"),
+    url("/fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src:
+    local("Montserrat Bold"),
+    url("/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Light"),
+    url("/fonts/manrope/Manrope-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Regular"),
+    url("/fonts/manrope/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope SemiBold"),
+    url("/fonts/manrope/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Bold"),
+    url("/fonts/manrope/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @import "tailwindcss";
@@ -23,99 +124,115 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-commissioner: "Commissioner", ui-sans-serif, system-ui, sans-serif;
-    --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-    --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-commissioner: "Commissioner", ui-sans-serif, system-ui, sans-serif;
+  --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-tt-norms: "Commissioner", ui-sans-serif, system-ui, sans-serif;
+  --text-hero-title-mobile: 40px;
+  --text-hero-title-mobile--line-height: 1;
+  --text-hero-title-tablet: 48px;
+  --text-hero-title-tablet--line-height: 1;
+  --text-hero-title-desktop: 54px;
+  --text-hero-title-desktop--line-height: 1;
+  --text-hero-body: 18px;
+  --text-hero-body--line-height: 1.1;
+  --text-hero-cta: 14px;
+  --text-hero-cta--line-height: 1;
+  --text-hero-or: 18px;
+  --text-hero-or--line-height: 1;
+  --tracking-hero-cta-primary: 0.08em;
+  --tracking-hero-cta-secondary: 0.03em;
+  --radius-hero-cta: 12px;
 
-    /* Figma: svai12.ru design tokens */
-    --color-brand: #FF8D00;
-    --color-brand-border: #B16303;
-    --color-brand-light: #FFF3E4;
-    --color-content-primary: #2C2C2C;
-    --color-content-secondary: #919191;
-    --color-content-muted: #777777;
-    --color-bg-main: #F7F7F7;
-    --color-bg-white: #FFFFFF;
-    --color-text-dark: rgba(0, 0, 0, 0.8);
-    --color-success: #74C74D;
-    --color-border-light: #DDDFE0;
-    --color-border-section: #F3F3F3;
+  /* Figma: svai12.ru design tokens */
+  --color-brand: #ff8d00;
+  --color-brand-border: #b16303;
+  --color-brand-light: #fff3e4;
+  --color-content-primary: #2c2c2c;
+  --color-content-secondary: #919191;
+  --color-content-muted: #777777;
+  --color-bg-main: #f7f7f7;
+  --color-bg-white: #ffffff;
+  --color-text-dark: rgba(0, 0, 0, 0.8);
+  --color-success: #74c74d;
+  --color-border-light: #dddfe0;
+  --color-border-section: #f3f3f3;
 }
 
 @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-card: var(--card);
-    --color-card-foreground: var(--card-foreground);
-    --color-popover: var(--popover);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-destructive: var(--destructive);
-    --color-border: var(--border);
-    --color-input: var(--input);
-    --color-ring: var(--ring);
-    --radius-sm: calc(var(--radius) - 4px);
-    --radius-md: calc(var(--radius) - 2px);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
-    --border: oklch(0.269 0 0);
-    --input: oklch(0.269 0 0);
-    --ring: oklch(0.439 0 0);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
 }
 
 @layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
-    body {
-        @apply bg-background text-foreground;
-        font-family: var(--font-commissioner);
-    }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-commissioner);
+  }
 }
 
 #__nuxt {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

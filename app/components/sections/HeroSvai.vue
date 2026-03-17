@@ -10,7 +10,7 @@ const heroImage = "/images/hero-bg.jpg";
 
 <template>
     <section id="hero"
-        class="relative w-full overflow-hidden bg-linear-to-b from-white via-white to-bg-main pt-12 pb-20 lg:pt-16 xl:min-h-205 xl:pt-10 xl:pb-28"
+        class="relative min-h-150 nw-full overflow-hidden pt-12 pb-20 lg:pt-16 xl:min-h-205 xl:pt-10 xl:pb-28 bg-white"
         :style="{
             '--hero-bg-image': `url(${heroImage})`,
         }">
@@ -72,15 +72,10 @@ const heroImage = "/images/hero-bg.jpg";
 <style scoped>
 @media (min-width: 1280px) {
     #hero {
-        background-image: var(--hero-bg-image),
-            linear-gradient(to bottom, #ffffff, #ffffff, #f7f7f7);
-        background-repeat: no-repeat, no-repeat;
-        background-position:
-            right top,
-            center;
-        background-size:
-            auto 100%,
-            100% 100%;
+        background-image: var(--hero-bg-image);
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: auto 100%;
     }
 }
 </style>

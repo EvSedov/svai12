@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const assetPath = usePublicAsset();
+</script>
+
 <template>
-    <img src="/Logo.png" alt="Логотип свай12.рф" />
+    <img :src="assetPath('/Logo.png')" alt="Логотип свай12.рф" />
 </template>

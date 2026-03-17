@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Компонент с контактной информацией
+const assetPath = usePublicAsset();
 </script>
 
 <template>
@@ -26,9 +27,9 @@
                     </a>
                     &nbsp;
                     <span class="flex gap-1.5">
-                        <img src="/icons/i-social-whatsapp.png" alt="Иконка социальной сети WhatsApp"
+                        <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp"
                             class="h-4 w-4" />
-                        <img src="/icons/i-social-tg.png" alt="Иконка социальной сети телеграмм"
+                        <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм"
                             class="h-4 w-4" />
                     </span>
                 </div>
@@ -72,15 +73,15 @@
             <div class="flex space-x-4">
                 <a href="#" class="h-6 w-6 text-yellow-500">
                     <span class="sr-only">Яндекс</span>
-                    <img src="/icons/icon-nav-yandex.svg" alt="Яндекс карты" />
+                    <img :src="assetPath('/icons/icon-nav-yandex.svg')" alt="Яндекс карты" />
                 </a>
                 <a href="#" class="h-6 w-6 text-red-500">
                     <span class="sr-only">Google</span>
-                    <img src="/icons/icons-nav-google.svg" alt="Google map" />
+                    <img :src="assetPath('/icons/icons-nav-google.svg')" alt="Google map" />
                 </a>
                 <a href="#" class="h-6 text-blue-500">
                     <span class="sr-only">2GIS</span>
-                    <img src="/icons/icon-nav-2gis.svg" alt="Навигатор 2Gis" width="76" height="24" />
+                    <img :src="assetPath('/icons/icon-nav-2gis.svg')" alt="Навигатор 2Gis" width="76" height="24" />
                 </a>
             </div>
         </div>

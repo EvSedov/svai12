@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import PhoneArrowDownLeft from "@/components/icons/PhoneArrowDownLeft.vue";
 
 const openOrderModal = inject("openOrderModal") as () => void;
+const assetPath = usePublicAsset();
 </script>
 
 <template>
@@ -19,9 +20,9 @@ const openOrderModal = inject("openOrderModal") as () => void;
                 <div class="flex flex-col items-end">
                     <div class="flex items-center justify-end gap-1">
                         <span class="flex">
-                            <img src="/icons/i-social-whatsapp.png" alt="Иконка социальной сети WhatsApp"
+                            <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp"
                                 class="mr-1 h-4 w-4" />
-                            <img src="/icons/i-social-tg.png" alt="Иконка социальной сети телеграмм"
+                            <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм"
                                 class="mr-1 h-4 w-4" />
                         </span>
                         <a href="tel:+79021091101"

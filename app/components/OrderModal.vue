@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const assetPath = usePublicAsset();
+
 import { watch, onUnmounted, computed, ref, reactive } from "vue";
 import { useErrorHandler } from "@/composables/useErrorHandler";
 import {
@@ -414,7 +416,7 @@ onUnmounted(() => {
                             >
                                 Заполняя форму, я принимаю
                                 <a
-                                    href="/docs/Оферта.pdf"
+                                    :href="assetPath('/docs/Оферта.pdf')"
                                     download="Оферта.pdf"
                                     target="_blank"
                                     class="text-[#126DF7]"
@@ -423,7 +425,7 @@ onUnmounted(() => {
                                 </a>
                                 и даю
                                 <a
-                                    href="/docs/Соглашение.pdf"
+                                    :href="assetPath('/docs/Соглашение.pdf')"
                                     download="Соглашение.pdf"
                                     target="_blank"
                                     class="text-[#126DF7]"

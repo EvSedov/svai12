@@ -2,6 +2,7 @@
 import { ref, onMounted, computed, onBeforeUnmount } from "vue";
 import { debounce } from "lodash-es";
 
+const assetPath = usePublicAsset();
 const whiteCardRef = ref<HTMLElement | null>(null);
 const whiteCardHeight = ref<number>(0);
 const whiteCardWidth = ref<number>(0);
@@ -103,7 +104,7 @@ onBeforeUnmount(() => {
                     <div
                         class="grid grid-cols-[362px] justify-center md:grid-cols-[362px_362px] md:gap-5 xl:grid-cols-[362px_362px_362px]">
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-16">
-                            <img src="/icons/container-1.png"
+                            <img :src="assetPath('/icons/container-1.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
@@ -111,7 +112,7 @@ onBeforeUnmount(() => {
                             </p>
                         </div>
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
-                            <img src="/icons/container-2.png"
+                            <img :src="assetPath('/icons/container-2.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
@@ -120,7 +121,7 @@ onBeforeUnmount(() => {
                             </p>
                         </div>
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
-                            <img src="/icons/container-3.png"
+                            <img :src="assetPath('/icons/container-3.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
@@ -129,7 +130,7 @@ onBeforeUnmount(() => {
                         </div>
 
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-18">
-                            <img src="/icons/container-4.png"
+                            <img :src="assetPath('/icons/container-4.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
@@ -138,7 +139,7 @@ onBeforeUnmount(() => {
                             </p>
                         </div>
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
-                            <img src="/icons/container-5.png"
+                            <img :src="assetPath('/icons/container-5.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">
@@ -147,7 +148,7 @@ onBeforeUnmount(() => {
                             </p>
                         </div>
                         <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
-                            <img src="/icons/container-6.png"
+                            <img :src="assetPath('/icons/container-6.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
                             <p class="text-center text-base text-black/80">

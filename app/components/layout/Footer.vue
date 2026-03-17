@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/components/Logo.vue";
+const assetPath = usePublicAsset();
 </script>
 
 <template>
@@ -13,9 +14,9 @@ import Logo from "@/components/Logo.vue";
                     </li>
                     <li class="my-6">
                         <div class="icons-social flex gap-1.25">
-                            <img src="/icons/i-social-vk.png" alt="Иконка социальной сети вконтакте" />
-                            <img src="/icons/i-social-tg.png" alt="Иконка социальной сети телеграмм" />
-                            <img src="/icons/i-social-whatsapp.png" alt="Иконка социальной сети WhatsApp" />
+                            <img :src="assetPath('/icons/i-social-vk.png')" alt="Иконка социальной сети вконтакте" />
+                            <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм" />
+                            <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp" />
                         </div>
                     </li>
                     <li class="mt-4">

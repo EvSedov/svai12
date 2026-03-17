@@ -5,7 +5,8 @@ import ArrowRight from "@/components/icons/ArrowRight.vue";
 import PhoneArrowDownLeft from "@/components/icons/PhoneArrowDownLeft.vue";
 
 const openOrderModal = inject("openOrderModal") as () => void;
-const heroImage = "/images/hero-bg.jpg";
+const assetPath = usePublicAsset();
+const heroImage = assetPath("/images/hero-bg.jpg");
 </script>
 
 <template>

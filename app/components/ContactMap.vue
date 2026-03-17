@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import MapButtons from '@/components/MapButtons.vue';
-const mapImage = "/images/2gis-map.png";
+const assetPath = usePublicAsset();
+const mapImage = assetPath("/images/2gis-map.png");
 </script>
 
 <template>

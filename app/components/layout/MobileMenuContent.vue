@@ -5,6 +5,7 @@ import PhoneArrowDownLeft from "@/components/icons/PhoneArrowDownLeft.vue";
 import { scrollToSection } from "@/lib/utils";
 const openOrderModal = inject("openOrderModal") as () => void;
 const closeSheet = inject("closeSheet") as () => void;
+const assetPath = usePublicAsset();
 
 const handleLinkClick = () => {
     if (closeSheet) {
@@ -129,8 +130,8 @@ const delayedScrollToSection = (targetId: string) => {
                 <a href="tel:+79021091101"
                     class="rounded-md px-1 py-0.5 font-(family-name:--font-tt-norms) text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
                     @click="handleLinkClick">+7 (902) 109-11-01</a>
-                <img src="/icons/i-social-whatsapp.png" alt="Иконка социальной сети WhatsApp" class="ml-1 h-4 w-4" />
-                <img src="/icons/i-social-tg.png" alt="Иконка социальной сети телеграмм" class="ml-1 h-4 w-4" />
+                <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp" class="ml-1 h-4 w-4" />
+                <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм" class="ml-1 h-4 w-4" />
             </div>
 
             <a href="mailto:svai12@mail.ru"

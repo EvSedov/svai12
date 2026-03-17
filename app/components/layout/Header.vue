@@ -4,7 +4,7 @@ import Logo from "@/components/Logo.vue";
 import Menu from "@/components/layout/Menu.vue";
 import MobileMenuToggle from "@/components/layout/MobileMenuToggle.vue";
 import { Button } from "@/components/ui/button";
-import BasketShopping from "@/components/icons/BasketShopping.vue";
+import PhoneArrowDownLeft from "@/components/icons/PhoneArrowDownLeft.vue";
 
 const openOrderModal = inject("openOrderModal") as () => void;
 </script>
@@ -41,8 +41,8 @@ const openOrderModal = inject("openOrderModal") as () => void;
             <Button
                 class="hidden rounded-md border-2 border-brand-border bg-brand px-6 py-3 text-base font-semibold tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-brand-border xl:flex"
                 @click="openOrderModal">
-                <BasketShopping class="mr-2 h-4 w-4" />
                 Обратный звонок
+                <PhoneArrowDownLeft class="mr-2 h-4 w-4" />
             </Button>
         </div>
     </div>

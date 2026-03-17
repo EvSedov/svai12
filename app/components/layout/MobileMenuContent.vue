@@ -22,9 +22,7 @@ const delayedScrollToSection = (targetId: string) => {
 
 <template>
     <nav class="flex flex-col gap-2 p-4">
-        <a
-            href="#hero"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#hero" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -36,13 +34,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId); // {{ edit_5 }} Передаем targetId
                     }
                 }
-            "
-        >
+            ">
             Главная
         </a>
-        <a
-            href="#how-we-work"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#how-we-work" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -53,13 +48,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             О нас
         </a>
-        <a
-            href="#examples"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#examples" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -70,13 +62,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             Каталог винтовых свай
         </a>
-        <a
-            href="#portfolio"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#portfolio" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -87,13 +76,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             Примеры работ
         </a>
-        <a
-            href="#reviews"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#reviews" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -104,13 +90,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             Отзывы
         </a>
-        <a
-            href="#contacts"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#contacts" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -121,13 +104,10 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             Контакты
         </a>
-        <a
-            href="#faqs"
-            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+        <a href="#faqs" class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
             @click.prevent="
                 (event: Event) => {
                     handleLinkClick();
@@ -138,43 +118,24 @@ const delayedScrollToSection = (targetId: string) => {
                         delayedScrollToSection(targetId);
                     }
                 }
-            "
-        >
+            ">
             Вопросы/Ответы
         </a>
     </nav>
 
-    <div
-        class="mt-4 flex flex-col items-center border-t border-gray-200 p-4 md:items-start"
-    >
-        <div
-            class="flex flex-col items-center space-y-2 px-4 text-sm md:items-start"
-        >
+    <div class="mt-4 flex flex-col items-center border-t border-gray-200 p-4 md:items-start">
+        <div class="flex flex-col items-center space-y-2 px-4 text-sm md:items-start">
             <div class="flex items-center gap-1">
-                <a
-                    href="tel:+79021091101"
-                    class="rounded-md px-1 py-0.5 font-[family-name:var(--font-tt-norms)] text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
-                    @click="handleLinkClick"
-                    >+7 (902) 109-11-01</a
-                >
-                <img
-                    src="/icons/i-social-whatsapp.png"
-                    alt="Иконка социальной сети WhatsApp"
-                    class="ml-1 h-4 w-4"
-                />
-                <img
-                    src="/icons/i-social-tg.png"
-                    alt="Иконка социальной сети телеграмм"
-                    class="ml-1 h-4 w-4"
-                />
+                <a href="tel:+79021091101"
+                    class="rounded-md px-1 py-0.5 font-(family-name:--font-tt-norms) text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
+                    @click="handleLinkClick">+7 (902) 109-11-01</a>
+                <img src="/icons/i-social-whatsapp.png" alt="Иконка социальной сети WhatsApp" class="ml-1 h-4 w-4" />
+                <img src="/icons/i-social-tg.png" alt="Иконка социальной сети телеграмм" class="ml-1 h-4 w-4" />
             </div>
 
-            <a
-                href="mailto:svai12@mail.ru"
+            <a href="mailto:svai12@mail.ru"
                 class="mt-2 rounded-md px-1 py-0.5 text-xs text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
-                @click="handleLinkClick"
-                >svai12@mail.ru</a
-            >
+                @click="handleLinkClick">svai12@mail.ru</a>
         </div>
 
         <Button
@@ -184,8 +145,7 @@ const delayedScrollToSection = (targetId: string) => {
                     handleLinkClick();
                     openOrderModal();
                 }
-            "
-        >
+            ">
             <PhoneArrowDownLeft class="mr-2 h-4 w-4" />
             Обратный звонок
         </Button>

@@ -11,16 +11,8 @@ const faqItems = [
         answer: "Подробная информация о процессе оформления заказа в нашей компании.",
     },
     {
-        question: "У вас есть санитарные зоны?",
-        answer: "Информация о расположении санитарных зон в нашем офисе.",
-    },
-    {
         question: "Как покупать в рассрочку?",
         answer: "Подробная информация о возможностях покупки товаров в рассрочку.",
-    },
-    {
-        question: "Как еще можно получить у вас футболку?",
-        answer: "Информация о специальных предложениях и акциях компании.",
     },
     {
         question: "Как начисляется кэшбэк?",
@@ -56,7 +48,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <section id="contacts" class="w-full bg-white pt-16.5 pb-0.5">
+    <section id="contacts" class="w-full bg-white pt-60 pb-15">
         <div class="mx-auto max-w-292.5 px-4 md:px-6 lg:px-8">
             <!-- Заголовок секции -->
             <h2 class="font-montserrat mb-8 text-center text-[32px] font-semibold text-[#2C2C2C] md:text-[42px]">

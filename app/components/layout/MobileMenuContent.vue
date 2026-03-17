@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from "vue";
 import { Button } from "@/components/ui/button";
-import BasketShopping from "@/components/icons/BasketShopping.vue";
+import PhoneArrowDownLeft from "@/components/icons/PhoneArrowDownLeft.vue";
 import { scrollToSection } from "@/lib/utils";
 const openOrderModal = inject("openOrderModal") as () => void;
 const closeSheet = inject("closeSheet") as () => void;
@@ -55,7 +55,7 @@ const delayedScrollToSection = (targetId: string) => {
                 }
             "
         >
-            Как мы работаем?
+            О нас
         </a>
         <a
             href="#examples"
@@ -72,7 +72,41 @@ const delayedScrollToSection = (targetId: string) => {
                 }
             "
         >
-            Наши работы и портфолио
+            Каталог винтовых свай
+        </a>
+        <a
+            href="#portfolio"
+            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+            @click.prevent="
+                (event: Event) => {
+                    handleLinkClick();
+                    const targetId = (
+                        event.currentTarget as HTMLAnchorElement
+                    ).getAttribute('href');
+                    if (targetId) {
+                        delayedScrollToSection(targetId);
+                    }
+                }
+            "
+        >
+            Примеры работ
+        </a>
+        <a
+            href="#reviews"
+            class="block rounded-md px-4 py-2 text-lg font-medium text-gray-700 hover:bg-gray-100"
+            @click.prevent="
+                (event: Event) => {
+                    handleLinkClick();
+                    const targetId = (
+                        event.currentTarget as HTMLAnchorElement
+                    ).getAttribute('href');
+                    if (targetId) {
+                        delayedScrollToSection(targetId);
+                    }
+                }
+            "
+        >
+            Отзывы
         </a>
         <a
             href="#contacts"
@@ -106,7 +140,7 @@ const delayedScrollToSection = (targetId: string) => {
                 }
             "
         >
-            Часто задаваемые вопросы
+            Вопросы/Ответы
         </a>
     </nav>
 
@@ -118,10 +152,10 @@ const delayedScrollToSection = (targetId: string) => {
         >
             <div class="flex items-center gap-1">
                 <a
-                    href="tel:+79254709400"
-                    class="rounded-md px-1 py-0.5 font-semibold whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
+                    href="tel:+79021091101"
+                    class="rounded-md px-1 py-0.5 font-[family-name:var(--font-tt-norms)] text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
                     @click="handleLinkClick"
-                    >+7 (925) 470-94-00</a
+                    >+7 (902) 109-11-01</a
                 >
                 <img
                     src="/icons/i-social-whatsapp.png"
@@ -136,10 +170,10 @@ const delayedScrollToSection = (targetId: string) => {
             </div>
 
             <a
-                href="mailto:POPECHATI@GMAIL.COM"
+                href="mailto:svai12@mail.ru"
                 class="mt-2 rounded-md px-1 py-0.5 text-xs text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
                 @click="handleLinkClick"
-                >popechati@gmail.com</a
+                >svai12@mail.ru</a
             >
         </div>
 
@@ -152,8 +186,8 @@ const delayedScrollToSection = (targetId: string) => {
                 }
             "
         >
-            <BasketShopping class="mr-2 h-4 w-4" />
-            Создать заказ
+            <PhoneArrowDownLeft class="mr-2 h-4 w-4" />
+            Обратный звонок
         </Button>
     </div>
 </template>

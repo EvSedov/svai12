@@ -29,6 +29,7 @@ provide("openOrderModal", openOrderModal);
 .main {
     width: 100%;
 }
+
 .wrap {
     width: 100%;
     margin: 0 auto;

@@ -5,18 +5,15 @@ const openOrderModal = inject("openOrderModal") as () => void;
 </script>
 
 <template>
-    <div class="bg-[#FF8D00] py-[11px]">
+    <div class="bg-brand py-2.75">
         <div class="discount mx-auto flex-col xl:flex-row">
             <p
-                class="mb-2 text-center font-[Commissioner] text-xl/5.5 font-bold tracking-normal text-white uppercase xl:mb-0"
-            >
-                Скидка 10% на первый заказ!
+                class="mb-2 text-center font-[Commissioner] text-xl/5.5 font-bold tracking-normal text-white uppercase xl:mb-0">
+                Скидка 5% через онлайк заявку при заказе от 200 000 ₽! 
             </p>
             <Button
-                class="m-0 ml-[11.6px] h-[25px] bg-white px-[10px] py-0 text-[10px] text-[#2C2C2C] hover:bg-gray-300"
-                @click="openOrderModal"
-                >Сделать заказ</Button
-            >
+                class="m-0 ml-[11.6px] h-6.25 bg-white px-2.5 py-0 text-[10px] text-content-primary hover:bg-gray-300"
+                @click="openOrderModal">Подробнее</Button>
         </div>
     </div>
 </template>

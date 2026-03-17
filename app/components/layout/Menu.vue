@@ -77,7 +77,7 @@ const handleNavigationClick = (event: Event) => {
                     :class="navigationMenuTriggerStyle()"
                     @click="handleNavigationClick"
                 >
-                    Как мы работаем?
+                    О нас
                 </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -86,7 +86,25 @@ const handleNavigationClick = (event: Event) => {
                     :class="navigationMenuTriggerStyle()"
                     @click="handleNavigationClick"
                 >
-                    Наши работы и портфолио
+                    Каталог винтовых свай
+                </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+                <NavigationMenuLink
+                    href="#portfolio"
+                    :class="navigationMenuTriggerStyle()"
+                    @click="handleNavigationClick"
+                >
+                    Примеры работ
+                </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+                <NavigationMenuLink
+                    href="#reviews"
+                    :class="navigationMenuTriggerStyle()"
+                    @click="handleNavigationClick"
+                >
+                    Отзывы
                 </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -104,7 +122,7 @@ const handleNavigationClick = (event: Event) => {
                     :class="navigationMenuTriggerStyle()"
                     @click="handleNavigationClick"
                 >
-                    Часто задаваемые вопросы
+                    Вопросы/Ответы
                 </NavigationMenuLink>
             </NavigationMenuItem>
         </NavigationMenuList>

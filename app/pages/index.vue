@@ -8,13 +8,14 @@ const handleFiltersUpdate = (activeFilters: string[]) => {
 </script>
 
 <template>
-    <div class="wrap bg-bg-main">
+    <div class="wrap">
         <SectionsHeroSvai />
         <SectionsHowWeWork />
-        <FilterWorks @filters-changed="handleFiltersUpdate" />
+        <!--<FilterWorks @filters-changed="handleFiltersUpdate" />
         <SectionsExamplesProducts :active-filters="currentActiveFilters" />
+        <SectionsPaymentMethods />-->
         <SectionsContactInfo />
-        <SectionsPaymentMethods />
+
     </div>
 </template>
 
@@ -22,9 +23,9 @@ const handleFiltersUpdate = (activeFilters: string[]) => {
 .main {
     width: 100%;
 }
+
 .wrap {
     width: 100%;
     margin: 0 auto;
-    padding-top: 10px;
 }
 </style>

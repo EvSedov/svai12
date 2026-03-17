@@ -2,21 +2,14 @@
     <Teleport to="body">
         <div class="fixed top-4 right-4 z-50 space-y-2">
             <TransitionGroup name="notification" tag="div" class="space-y-2">
-                <div
-                    v-for="notification in notifications"
-                    :key="notification.id"
-                    :class="[
-                        'ring-opacity-5 pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black',
-                        getNotificationClasses(notification.type),
-                    ]"
-                >
+                <div v-for="notification in notifications" :key="notification.id" :class="[
+                    'ring-opacity-5 pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black',
+                    getNotificationClasses(notification.type),
+                ]">
                     <div class="p-4">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <component
-                                    :is="getIcon(notification.type)"
-                                    class="h-6 w-6"
-                                />
+                            <div class="shrink-0">
+                                <component :is="getIcon(notification.type)" class="h-6 w-6" />
                             </div>
                             <div class="ml-3 flex-1 pt-0.5">
                                 <p class="text-sm font-medium text-gray-900">
@@ -26,11 +19,9 @@
                                     {{ notification.message }}
                                 </p>
                             </div>
-                            <div class="ml-4 flex flex-shrink-0 self-start">
-                                <button
-                                    @click="removeNotification(notification.id)"
-                                    class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
-                                >
+                            <div class="ml-4 flex shrink-0 self-start">
+                                <button @click="removeNotification(notification.id)"
+                                    class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none">
                                     <span class="sr-only">Закрыть</span>
                                     <IconsXMarkIcon class="h-5 w-5" />
                                 </button>
@@ -38,22 +29,16 @@
                         </div>
                     </div>
                     <!-- Прогресс-бар для автоматического закрытия -->
-                    <div
-                        v-if="
-                            notification.duration && notification.duration > 0
-                        "
-                        class="h-1 bg-gray-200"
-                    >
-                        <div
-                            :class="[
-                                'h-full transition-all ease-linear',
-                                getProgressBarClass(notification.type),
-                            ]"
-                            :style="{
-                                width: '100%',
-                                animation: `shrink ${notification.duration}ms linear forwards`,
-                            }"
-                        ></div>
+                    <div v-if="
+                        notification.duration && notification.duration > 0
+                    " class="h-1 bg-gray-200">
+                        <div :class="[
+                            'h-full transition-all ease-linear',
+                            getProgressBarClass(notification.type),
+                        ]" :style="{
+                            width: '100%',
+                            animation: `shrink ${notification.duration}ms linear forwards`,
+                        }"></div>
                     </div>
                 </div>
             </TransitionGroup>
@@ -154,6 +139,7 @@ onUnmounted(() => {
     from {
         width: 100%;
     }
+
     to {
         width: 0%;
     }

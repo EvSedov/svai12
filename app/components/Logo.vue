@@ -1,3 +1,3 @@
 <template>
-    <img src="/LogoPopechati.png" alt="Логотип Popechati" />
+    <img src="/Logo.png" alt="Логотип свай12.рф" />
 </template>

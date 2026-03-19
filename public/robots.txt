@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://evsedov.github.io/svai12/sitemap.xml

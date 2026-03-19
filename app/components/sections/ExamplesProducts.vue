@@ -3,6 +3,8 @@ import { ref, computed } from "vue";
 import SvaiCard from "@/components/SvaiCard.vue";
 import OgolovokCard from "@/components/OgolovokCard.vue";
 
+const assetPath = usePublicAsset();
+
 interface Props {
     activeFilters: string[];
 }
@@ -33,7 +35,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 1,
         title: "Сваи 57",
-        imageSrc: "/images/products/svai-57.png",
+        imageSrc: assetPath("/images/products/svai-57.png"),
         badge: "АКЦИЯ",
         lengths: [1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
         basePrice: "от 1250 руб.",
@@ -43,7 +45,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 2,
         title: "Сваи 76",
-        imageSrc: "/images/products/svai-76.png",
+        imageSrc: assetPath("/images/products/svai-76.png"),
         badge: "АКЦИЯ",
         lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
         basePrice: "от 1750 руб.",
@@ -53,7 +55,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 3,
         title: "Сваи 89",
-        imageSrc: "/images/products/svai-89.png",
+        imageSrc: assetPath("/images/products/svai-89.png"),
         badge: "АКЦИЯ",
         lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
         basePrice: "от 2100 руб.",
@@ -63,7 +65,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 4,
         title: "Сваи 108",
-        imageSrc: "/images/products/svai-108.png",
+        imageSrc: assetPath("/images/products/svai-108.png"),
         badge: "АКЦИЯ",
         lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
         basePrice: "от 2550 руб.",
@@ -73,7 +75,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 5,
         title: "Сваи 133",
-        imageSrc: "/images/products/svai-133.png",
+        imageSrc: assetPath("/images/products/svai-133.png"),
         badge: "АКЦИЯ",
         lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
         basePrice: "от 3150 руб.",
@@ -83,7 +85,7 @@ const allSvai = ref<SvaiProduct[]>([
     {
         id: 6,
         title: "Сваи 159",
-        imageSrc: "/images/products/svai-159.png",
+        imageSrc: assetPath("/images/products/svai-159.png"),
         badge: "АКЦИЯ",
         lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
         basePrice: "по запросу",
@@ -96,7 +98,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 101,
         title: "Оголовок под сваю ф57 (100х100 \\ 150х150 \\ 200х200)",
-        imageSrc: "/images/products/ogolovok-57.png",
+        imageSrc: assetPath("/images/products/ogolovok-57.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 200 руб.",
@@ -105,7 +107,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 102,
         title: "Оголовок под сваю ф76 (150х150 \\ 200х200)",
-        imageSrc: "/images/products/ogolovok-76.png",
+        imageSrc: assetPath("/images/products/ogolovok-76.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 250 руб.",
@@ -114,7 +116,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 103,
         title: "Оголовок под сваю ф89 (150х150 \\ 200х200)",
-        imageSrc: "/images/products/ogolovok-89.png",
+        imageSrc: assetPath("/images/products/ogolovok-89.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 250 руб.",
@@ -123,7 +125,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 104,
         title: "Оголовок под сваю ф108 (150х150 \\ 200х200)",
-        imageSrc: "/images/products/ogolovok-108.png",
+        imageSrc: assetPath("/images/products/ogolovok-108.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 325 руб.",
@@ -132,7 +134,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 105,
         title: "Оголовок под сваю ф133 (200х200)",
-        imageSrc: "/images/products/ogolovok-133.png",
+        imageSrc: assetPath("/images/products/ogolovok-133.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 325 руб.",
@@ -141,7 +143,7 @@ const allOgolovki = ref<OgolovokProduct[]>([
     {
         id: 106,
         title: "Оголовок под сваю ф159 (250х250)",
-        imageSrc: "/images/products/ogolovok-159.png",
+        imageSrc: assetPath("/images/products/ogolovok-159.png"),
         badge: "АКЦИЯ",
         thickness: "Толщина: 4мм или другие",
         price: "от 625 руб.",

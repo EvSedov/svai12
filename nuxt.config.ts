@@ -8,6 +8,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     baseURL: env?.NUXT_APP_BASE_URL || '/',
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      titleTemplate: '%s | СВАИ+',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ],
+    },
   },
 
   css: ['~/assets/css/app.css'],

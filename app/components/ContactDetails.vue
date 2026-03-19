@@ -9,7 +9,7 @@ const assetPath = usePublicAsset();
         <div class="mb-4 flex gap-3">
             <h2 class="font-medium tracking-wide text-neutral-900">Адреса</h2>
             <a href="#"
-                class="block h-[34px] rounded-lg border border-dashed border-[#FF8D00] px-5 py-1.5 text-center text-[13px] leading-[22px] font-medium whitespace-nowrap text-[#FF8D00]">
+                class="block h-[34px] rounded-lg border border-dashed border-brand px-5 py-1.5 text-center text-[13px] leading-[22px] font-medium whitespace-nowrap text-brand">
                 Центральный офис
             </a>
         </div>
@@ -20,22 +20,30 @@ const assetPath = usePublicAsset();
                 Контакты и номера телефонов:
             </h3>
             <div>
-                <div class="flex items-center gap-2">
-                    <a href="tel:+79254709400"
+                <div>
+                    <a href="tel:+79021091101"
                         class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
-                        +7 (925) 470-94-00
+                        +7 (902) 109-11-01
                     </a>
-                    &nbsp;
-                    <span class="flex gap-1.5">
-                        <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp"
-                            class="h-4 w-4" />
-                        <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм"
-                            class="h-4 w-4" />
-                    </span>
+                    <span class="text-neutral-400">(Генеральный директор)</span>
                 </div>
                 <div>
-                    <a href="mailto:popechati@gmail.com"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">popechati@gmail.com</a>
+                    <a href="tel:+74993985601"
+                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
+                        +7 (499) 398-56-01
+                    </a>
+                    <span class="text-neutral-400">(Городской номер)</span>
+                </div>
+                <div>
+                    <a href="tel:+79778133227"
+                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
+                        +7 (977) 813-32-27
+                    </a>
+                    <span class="text-neutral-400">(Прием заказов, консультация, сопровождение клиентов)</span>
+                </div>
+                <div>
+                    <a href="mailto:svai12@mail.ru"
+                        class="rounded-md px-1 py-0.5 text-[#FF8D00] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">svai12@mail.ru</a>
                 </div>
             </div>
         </div>
@@ -44,24 +52,22 @@ const assetPath = usePublicAsset();
         <div class="mb-4">
             <h3 class="mb-2 font-medium text-neutral-900">Дополнительно:</h3>
             <p class="text-neutral-700">
-                В офисе есть каталог материалов и образцы продукции.
+                В нашем офисе есть образцы свай и оголовков для рассчёта стоимости
             </p>
         </div>
 
         <!-- Время работы -->
         <div class="mb-4">
             <h3 class="mb-2 font-medium text-neutral-900">Время работы:</h3>
-            <p class="text-neutral-700">Пн-сб: 11:00 – 19:00</p>
-            <p class="text-neutral-700">Вс: по договоренности</p>
+            <p class="text-neutral-700">Пн - Пт: 11:00 - 22:00.</p>
+            <p class="text-neutral-700">Сб, Вс: По договоренности!</p>
         </div>
 
         <!-- Адрес -->
         <div class="mb-6">
             <h3 class="mb-2 font-medium text-neutral-900">Адрес:</h3>
             <p class="text-neutral-700">
-                г. Москва, Батайский проезд 59, вход с противоположной стороны от
-                подъездов, под вывеской «КОПИ ЦЕНТ», 7 минут пешком от метро
-                Марьино
+                г.&nbsp;Чебоксары, улица 10-ой Пятилетки&nbsp;2, кор.&nbsp;5, строение&nbsp;1
             </p>
         </div>
 
@@ -105,9 +111,5 @@ h3 {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-}
-
-.text-[#FF8D00] {
-    color: #1882f0;
 }
 </style>

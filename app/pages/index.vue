@@ -11,11 +11,10 @@ const handleFiltersUpdate = (activeFilters: string[]) => {
     <div class="wrap">
         <SectionsHeroSvai />
         <SectionsHowWeWork />
-        <!--<FilterWorks @filters-changed="handleFiltersUpdate" />
+        <FilterWorks @filters-changed="handleFiltersUpdate" />
         <SectionsExamplesProducts :active-filters="currentActiveFilters" />
-        <SectionsPaymentMethods />-->
         <SectionsContactInfo />
-
+        <!--<SectionsPaymentMethods />-->
     </div>
 </template>
 

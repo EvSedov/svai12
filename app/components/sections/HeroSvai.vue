@@ -11,7 +11,7 @@ const heroImage = assetPath("/images/hero-bg.jpg");
 
 <template>
     <section id="hero"
-        class="relative min-h-132 w-full overflow-hidden pt-10 pb-40 sm:min-h-140 sm:pt-12 sm:pb-46 md:pb-52 lg:min-h-155 lg:pt-16 lg:pb-46 xl:min-h-205 xl:pt-10 xl:pb-28"
+        class="relative min-h-132 w-full overflow-hidden pt-10 pb-8 sm:min-h-140 sm:pt-12 sm:pb-8 md:pb-52 lg:min-h-155 lg:pt-16 lg:pb-46 xl:min-h-205 xl:pt-10 xl:pb-28"
         :style="{
             '--hero-bg-image': `url(${heroImage})`,
         }">

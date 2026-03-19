@@ -47,56 +47,48 @@ onBeforeUnmount(() => {
             width: containerWidth,
         }">
             <div id="how-we-work" ref="whiteCardRef"
-                class="absolute -top-30 flex max-w-291.5 flex-col items-center gap-4 rounded-md bg-white py-9 shadow-lg">
-                <div class="flex flex-col">
-                    <h2 class="mb-10 text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]">
-                        Что вы получаете работая с нами?
-                    </h2>
-                    <div
-                        class="grid grid-cols-[276px] justify-center md:grid-cols-[276px_276px] md:gap-4 xl:grid-cols-[276px_276px_276px_276px]">
-                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
-                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
-                                <span class="text-2xl/[28px] text-white">1</span>
-                            </div>
-                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
-                                <span class="text-center text-sm/relaxed text-black/80">Оставляете заявку <br />
-                                    на сайте/звоните или пишите на прямую</span>
-                            </div>
+                class="absolute -top-30 flex max-w-291.5 flex-col items-center gap-10 rounded-md bg-white px-4 py-9 shadow-lg md:px-8 xl:px-4">
+                <div class="flex w-full flex-col gap-8 xl:max-w-286">
+                    <div class="flex w-full flex-col gap-8 xl:flex-row xl:items-start xl:justify-between xl:gap-10">
+                        <div
+                            class="font-montserrat flex max-w-156 flex-col gap-1 text-left text-4.5 leading-none font-medium tracking-[0.02em] text-black/60">
+                            <h2
+                                class="mb-4 text-center text-3xl font-bold text-black sm:text-4xl md:mb-5 md:text-[42px]">
+                                О нас
+                            </h2>
+                            <p>
+                                <span class="font-bold text-black">Мы</span>
+                                — команда специалистов по монтажу винтовых свай с опытом работы
+                                <span class="font-bold text-black underline">более 15 лет.</span>
+                            </p>
+                            <p>
+                                За это время реализованы
+                                <span class="font-bold text-black">сотни проектов:</span>
+                                от частных домов и бань до коммерческих объектов, заборов, террас и промышленных
+                                конструкций.
+                            </p>
+                            <p>
+                                Мы работаем с разными типами грунта и подбираем техническое решение индивидуально под
+                                каждый объект. Используем проверенные материалы, современное оборудование и строго
+                                соблюдаем технологию монтажа, чтобы ваш фундамент служил десятилетиями без просадок и
+                                перекосов.
+                            </p>
+                            <p>
+                                <span class="font-bold text-black">Наша цель</span>
+                                — не просто установить сваи, а
+                                <span class="font-bold text-black">обеспечить вам надежное основание,</span>
+                                на котором можно строить уверенно и без лишних затрат.
+                            </p>
                         </div>
-                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
-                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
-                                <span class="text-2xl/[28px] text-white">2</span>
-                            </div>
-                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
-                                <span class="text-center text-sm/relaxed text-black/80">Обговариваем нюансы,
-                                    согласовываем макеты и
-                                    сроки
-                                </span>
-                            </div>
-                        </div>
-                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
-                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
-                                <span class="text-2xl/[28px] text-white">3</span>
-                            </div>
-                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
-                                <span class="text-center text-sm/relaxed text-black/80">Мы сообщаем о готовности</span>
-                            </div>
-                        </div>
-                        <div class="relative flex h-49 w-69 flex-col items-center justify-center">
-                            <div class="absolute top-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand">
-                                <span class="text-2xl/[28px] text-white">4</span>
-                            </div>
-                            <div class="flex h-34 w-57 items-start justify-center rounded-3xl pt-14 shadow-md">
-                                <span class="text-center text-sm/relaxed text-black/80">Вы забираете готовый заказ в
-                                    офисе /
-                                    оформляем доставку</span>
-                            </div>
+
+                        <div
+                            class="mx-auto w-full max-w-105 overflow-hidden rounded-md border border-black/8 bg-neutral-100 xl:mx-0 xl:w-105 xl:shrink-0">
+                            <img :src="assetPath('/images/people-working.jpg')" alt="Монтаж винтовых свай"
+                                class="h-full w-full object-cover" />
                         </div>
                     </div>
-                    <span class="text-center text-sm font-semibold text-black">* Оплата осуществляется на стадии
-                        согласования
-                        макета</span>
                 </div>
+
                 <div class="mt-10 flex w-full flex-col gap-10">
                     <h2 class="text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]">
                         Что вы получаете работая с нами?
@@ -154,7 +146,6 @@ onBeforeUnmount(() => {
                             <p class="text-center text-base text-black/80">
                                 Монтаж в любое<br />
                                 время года
-                                <span class="text-brand/45">(даже натурой)</span>
                             </p>
                         </div>
                     </div>

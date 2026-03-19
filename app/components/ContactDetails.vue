@@ -4,12 +4,12 @@ const assetPath = usePublicAsset();
 </script>
 
 <template>
-    <div class="contact-details max-w-[335px]">
+    <div class="contact-details max-w-83.75">
         <!-- Адреса -->
         <div class="mb-4 flex gap-3">
             <h2 class="font-medium tracking-wide text-neutral-900">Адреса</h2>
             <a href="#"
-                class="block h-[34px] rounded-lg border border-dashed border-brand px-5 py-1.5 text-center text-[13px] leading-[22px] font-medium whitespace-nowrap text-brand">
+                class="block h-8.5 rounded-lg border border-dashed border-brand px-5 py-1.5 text-center text-3.25 leading-5.5 font-medium whitespace-nowrap text-brand">
                 Центральный офис
             </a>
         </div>
@@ -22,28 +22,28 @@ const assetPath = usePublicAsset();
             <div>
                 <div>
                     <a href="tel:+79021091101"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
+                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
                         +7 (902) 109-11-01
                     </a>
                     <span class="text-neutral-400">(Генеральный директор)</span>
                 </div>
                 <div>
                     <a href="tel:+74993985601"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
+                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
                         +7 (499) 398-56-01
                     </a>
                     <span class="text-neutral-400">(Городской номер)</span>
                 </div>
                 <div>
                     <a href="tel:+79778133227"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
+                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
                         +7 (977) 813-32-27
                     </a>
                     <span class="text-neutral-400">(Прием заказов, консультация, сопровождение клиентов)</span>
                 </div>
                 <div>
                     <a href="mailto:svai12@mail.ru"
-                        class="rounded-md px-1 py-0.5 text-[#FF8D00] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">svai12@mail.ru</a>
+                        class="rounded-md px-1 py-0.5 text-brand transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">svai12@mail.ru</a>
                 </div>
             </div>
         </div>

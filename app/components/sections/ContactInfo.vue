@@ -51,8 +51,9 @@ onUnmounted(() => {
     <section id="contacts" class="w-full bg-white pt-10 pb-15 md:pt-18">
         <div class="mx-auto max-w-292.5 px-4 md:px-6 lg:px-8">
             <!-- Заголовок секции -->
-            <h2 class="font-montserrat mb-8 text-center text-[32px] font-semibold text-[#2C2C2C] md:text-[42px]">
-                Контактная информация
+            <h2
+                class="mb-8 text-center font-montserrat text-hero-title-tablet leading-8 font-semibold tracking-[0.02em] text-black md:mb-10 md:text-hero-title-desktop">
+                Контактная <span class="text-brand">информация</span>
             </h2>
 
             <!-- Контактная информация с картой -->

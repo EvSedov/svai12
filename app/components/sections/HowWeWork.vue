@@ -5,7 +5,6 @@ import { debounce } from "lodash-es";
 const assetPath = usePublicAsset();
 const whiteCardRef = ref<HTMLElement | null>(null);
 const whiteCardHeight = ref<number>(0);
-const whiteCardWidth = ref<number>(0);
 let resizeObserver: ResizeObserver | null = null;
 
 const containerMinHeight = computed(() => {
@@ -13,14 +12,10 @@ const containerMinHeight = computed(() => {
 
     return `${whiteCardHeight.value - paddingY}px`;
 });
-const containerWidth = computed(() => {
-    return `${whiteCardWidth.value}px`;
-});
 const handleResize = debounce((entries) => {
     for (let entry of entries) {
         if (entry.target === whiteCardRef.value) {
             whiteCardHeight.value = entry.contentRect.height;
-            whiteCardWidth.value = entry.contentRect.width;
         }
     }
 }, 100);
@@ -41,19 +36,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="h-auto bg-brand">
-        <div class="relative mx-auto" :style="{
-            minHeight: containerMinHeight,
-            width: containerWidth,
-        }">
+    <div class="h-auto bg-brand py-4 md:py-0">
+        <div class="relative mx-auto w-full max-w-291.5 px-4 md:px-0" :style="{ minHeight: containerMinHeight }">
             <div id="how-we-work" ref="whiteCardRef"
-                class="absolute -top-30 flex max-w-291.5 flex-col items-center gap-10 rounded-md bg-white px-4 py-9 shadow-lg md:px-8 xl:px-4">
+                class="flex w-full flex-col items-center gap-10 rounded-md bg-white px-4 py-9 shadow-lg md:absolute md:-top-30 md:px-8 xl:px-4">
                 <div class="flex w-full flex-col gap-8 xl:max-w-286">
                     <div class="flex w-full flex-col gap-8 xl:flex-row xl:items-start xl:justify-between xl:gap-10">
                         <div
                             class="font-montserrat flex max-w-156 flex-col gap-1 text-left text-4.5 leading-none font-medium tracking-[0.02em] text-black/60">
-                            <h2
-                                class="mb-4 text-center text-3xl font-bold text-black sm:text-4xl md:mb-5 md:text-[42px]">
+                            <h2 class="mb-4 text-center text-3xl font-bold text-black sm:text-4xl md:mb-5 md:text-10.5">
                                 О нас
                             </h2>
                             <p>
@@ -90,12 +81,11 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div class="mt-10 flex w-full flex-col gap-10">
-                    <h2 class="text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-[42px]">
+                    <h2 class="text-center text-3xl font-bold text-wrap text-black sm:text-4xl md:text-10.5">
                         Что вы получаете работая с нами?
                     </h2>
-                    <div
-                        class="grid grid-cols-[362px] justify-center md:grid-cols-[362px_362px] md:gap-5 xl:grid-cols-[362px_362px_362px]">
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-16">
+                    <div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-1.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
@@ -103,7 +93,7 @@ onBeforeUnmount(() => {
                                 Точный расчёт и проектирование
                             </p>
                         </div>
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-2.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
@@ -112,7 +102,7 @@ onBeforeUnmount(() => {
 
                             </p>
                         </div>
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-3.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
@@ -121,7 +111,7 @@ onBeforeUnmount(() => {
                             </p>
                         </div>
 
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-18">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-4.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
@@ -130,7 +120,7 @@ onBeforeUnmount(() => {
                                 оборудование
                             </p>
                         </div>
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-8">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-5.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 
@@ -139,7 +129,7 @@ onBeforeUnmount(() => {
                                 надёжность
                             </p>
                         </div>
-                        <div class="flex h-36 w-90.5 flex-col items-center justify-between px-10">
+                        <div class="flex h-36 w-full max-w-90.5 flex-col items-center justify-between px-4">
                             <img :src="assetPath('/icons/container-6.png')"
                                 alt="Иконка с нашими преимуществами о том почему нужно с нами сотрудничать" />
 

@@ -29,7 +29,7 @@ const works = [
 </script>
 
 <template>
-    <section class="bg-bg-main px-4 py-18 md:px-6 md:py-22 lg:px-8 lg:py-26">
+    <section class="bg-white px-4 pt-18 pb-12.5 md:px-6 md:pt-22 md:pb-12.5 lg:px-8 lg:pt-26 lg:pb-12.5">
         <div class="mx-auto max-w-395">
             <h2
                 class="mb-12 text-center font-montserrat text-hero-title-tablet font-semibold leading-8 tracking-[0.02em] text-black md:mb-16 md:text-hero-title-desktop">

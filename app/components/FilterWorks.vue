@@ -32,7 +32,7 @@ const handleFilterClick = (clickedValue: string) => {
 
 <template>
     <section id="examples"
-        class="mt-30 bg-bg-main px-4 pt-18 pb-12 md:px-6 md:pt-22 md:pb-14 lg:px-8 lg:pt-26 lg:pb-16">
+        class="mt-4 bg-bg-main px-4 pt-18 pb-12 md:mt-30 md:px-6 md:pt-22 md:pb-14 lg:px-8 lg:pt-26 lg:pb-16">
         <div class="mx-auto flex max-w-395 flex-col items-center text-center">
             <h2
                 class="mb-8 font-montserrat text-hero-title-tablet leading-8 font-semibold tracking-[0.02em] text-black md:mb-10 md:text-hero-title-desktop">

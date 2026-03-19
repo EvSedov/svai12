@@ -1,227 +1,190 @@
 <script lang="ts" setup>
-import { ref, computed, defineProps } from "vue";
+import { ref, computed } from "vue";
+import SvaiCard from "@/components/SvaiCard.vue";
+import OgolovokCard from "@/components/OgolovokCard.vue";
 
-// Вспомогательная функция для генерации динамических путей к изображениям
-const getImageUrl = (name: string) => {
-    return `/images/examples/${name}`;
-};
-
-// Определяем пропсы, которые этот компонент будет принимать
 interface Props {
-    activeFilters: string[]; // Массив строк с активными значениями фильтров
+    activeFilters: string[];
 }
 const props = defineProps<Props>();
 
-// Пример данных для футболок (вам нужно будет адаптировать это под свою реальную структуру данных)
-interface ExampleProduct {
+interface SvaiProduct {
     id: number;
-    name: string;
-    image: string;
+    title: string;
+    imageSrc: string;
+    badge: string;
+    lengths: number[];
+    basePrice: string;
+    installPrice: string;
     category: string[];
 }
 
-const allProductsExamples = ref<ExampleProduct[]>([
+interface OgolovokProduct {
+    id: number;
+    title: string;
+    imageSrc: string;
+    badge: string;
+    thickness: string;
+    price: string;
+    category: string[];
+}
+
+const allSvai = ref<SvaiProduct[]>([
     {
         id: 1,
-        name: "👕 Сексуальная футболка",
-        image: "t-shirts.jpg",
-        category: ["clothing", "for-men"],
+        title: "Сваи 57",
+        imageSrc: "/images/products/svai-57.png",
+        badge: "АКЦИЯ",
+        lengths: [1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
+        basePrice: "от 1250 руб.",
+        installPrice: "от 2100 руб.",
+        category: ["screw-piles"],
     },
     {
         id: 2,
-        name: "👕 Аниме для мужчин",
-        image: "undershirt-1.jpg",
-        category: ["clothing", "anime", "for-men"],
+        title: "Сваи 76",
+        imageSrc: "/images/products/svai-76.png",
+        badge: "АКЦИЯ",
+        lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
+        basePrice: "от 1750 руб.",
+        installPrice: "от 2850 руб.",
+        category: ["screw-piles"],
     },
     {
         id: 3,
-        name: "🔥 Любителям котиков",
-        image: "undershirt-2.jpg",
-        category: ["clothing", "for-women", "animals"],
+        title: "Сваи 89",
+        imageSrc: "/images/products/svai-89.png",
+        badge: "АКЦИЯ",
+        lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
+        basePrice: "от 2100 руб.",
+        installPrice: "от 3225 руб.",
+        category: ["screw-piles"],
     },
     {
         id: 4,
-        name: "✨ Листовая 3D лак фольга",
-        image: "listovaya-3d-lak-folga.png",
-        category: ["sheet-printing"],
+        title: "Сваи 108",
+        imageSrc: "/images/products/svai-108.png",
+        badge: "АКЦИЯ",
+        lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
+        basePrice: "от 2550 руб.",
+        installPrice: "от 3775 руб.",
+        category: ["screw-piles"],
     },
     {
         id: 5,
-        name: "📇 Печать визиток",
-        image: "vizitki.png",
-        category: ["business-cards"],
+        title: "Сваи 133",
+        imageSrc: "/images/products/svai-133.png",
+        badge: "АКЦИЯ",
+        lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
+        basePrice: "от 3150 руб.",
+        installPrice: "от 4450 руб.",
+        category: ["screw-piles"],
     },
     {
         id: 6,
-        name: "🖨️ Печать листовок",
-        image: "listovka.png",
-        category: ["flyers", "sheet-printing"],
-    },
-    {
-        id: 7,
-        name: "📜 Печать приглашений",
-        image: "priglasheniya.png",
-        category: ["invitations", "sheet-printing"],
-    },
-    {
-        id: 8,
-        name: "📜 Печать открыток",
-        image: "otkrytki.png",
-        category: ["cards", "sheet-printing"],
-    },
-    {
-        id: 9,
-        name: "📖 Печать книжных закладок",
-        image: "knizhnye-zakladki.png",
-        category: ["bookmarks", "sheet-printing"],
-    },
-    {
-        id: 10,
-        name: "🏷️ Печать наклеек",
-        image: "nakleyki.png",
-        category: ["stickers"],
-    },
-    {
-        id: 11,
-        name: "✉️ Печать на конвертах",
-        image: "konvert.png",
-        category: ["envelopes", "sheet-printing"],
-    },
-    {
-        id: 12,
-        name: "📚 Буклеты и лифлеты",
-        image: "bukleti.png",
-        category: ["brochures", "multi-page-printing"],
-    },
-    {
-        id: 13,
-        name: "🔖 Печать бирок",
-        image: "birka-oblozhka.png",
-        category: ["packaging", "sheet-printing"],
-    },
-    {
-        id: 14,
-        name: "🃏 Печать колоды карт",
-        image: "kolody_kart.png",
-        category: ["multi-page-printing"],
-    },
-    {
-        id: 15,
-        name: "📄 Печать флаеров",
-        image: "flayer.png",
-        category: ["flyers", "sheet-printing"],
-    },
-    {
-        id: 16,
-        name: "🖼️ Печать афиш",
-        image: "afisha.png",
-        category: ["posters", "wide-format-printing", "interior-printing"],
-    },
-    {
-        id: 17,
-        name: "🏅 Печать дипломов",
-        image: "diplom.png",
-        category: ["diplomas", "sheet-printing"],
-    },
-    {
-        id: 18,
-        name: "🏆 Печать сертификатов",
-        image: "pechat-sertifikatov.png",
-        category: ["certificates", "sheet-printing"],
-    },
-    {
-        id: 19,
-        name: "🎟️ Печать билетов",
-        image: "pechat-biletov.png",
-        category: ["tickets", "sheet-printing"],
-    },
-    {
-        id: 20,
-        name: "🖨️ Печать плакатов",
-        image: "pechat-plakatov.png",
-        category: ["posters", "wide-format-printing", "interior-printing"],
-    },
-    {
-        id: 21,
-        name: "📄 Фирменные бланки",
-        image: "blank.png",
-        category: ["sheet-printing"],
-    },
-    {
-        id: 22,
-        name: "📁 Бумажные папки",
-        image: "bumazhnye-papki-2.png",
-        category: ["sheet-printing"],
-    },
-    {
-        id: 23,
-        name: "📁 Папки на кольцах",
-        image: "papki-na-kolcah-2.png",
-        category: ["sheet-printing"],
-    },
-    {
-        id: 24,
-        name: "📛 Печать бейджей",
-        image: "bejdzhi-new-2.png",
-        category: ["corporate-merch", "sheet-printing"],
-    },
-    {
-        id: 25,
-        name: "💳 Пластиковые карты",
-        image: "main-small.png",
-        category: ["corporate-merch", "business-cards"],
+        title: "Сваи 159",
+        imageSrc: "/images/products/svai-159.png",
+        badge: "АКЦИЯ",
+        lengths: [1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000],
+        basePrice: "по запросу",
+        installPrice: "от 6475 руб.",
+        category: ["screw-piles"],
     },
 ]);
 
-// Вычисляемое свойство для отображения отфильтрованных футболок
-const filteredExamples = computed(() => {
-    if (props.activeFilters.length === 0) {
-        // Если нет активных фильтров, показываем все футболки
-        return allProductsExamples.value;
-    } else {
-        // Фильтруем футболки: показываем только те, чьи категории пересекаются с активными фильтрами
-        return allProductsExamples.value.filter((tshirt) =>
-            props.activeFilters.some((filter) =>
-                tshirt.category.includes(filter),
-            ),
-        );
-    }
-});
+const allOgolovki = ref<OgolovokProduct[]>([
+    {
+        id: 101,
+        title: "Оголовок под сваю ф57 (100х100 \\ 150х150 \\ 200х200)",
+        imageSrc: "/images/products/ogolovok-57.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 200 руб.",
+        category: ["caps"],
+    },
+    {
+        id: 102,
+        title: "Оголовок под сваю ф76 (150х150 \\ 200х200)",
+        imageSrc: "/images/products/ogolovok-76.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 250 руб.",
+        category: ["caps"],
+    },
+    {
+        id: 103,
+        title: "Оголовок под сваю ф89 (150х150 \\ 200х200)",
+        imageSrc: "/images/products/ogolovok-89.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 250 руб.",
+        category: ["caps"],
+    },
+    {
+        id: 104,
+        title: "Оголовок под сваю ф108 (150х150 \\ 200х200)",
+        imageSrc: "/images/products/ogolovok-108.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 325 руб.",
+        category: ["caps"],
+    },
+    {
+        id: 105,
+        title: "Оголовок под сваю ф133 (200х200)",
+        imageSrc: "/images/products/ogolovok-133.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 325 руб.",
+        category: ["caps"],
+    },
+    {
+        id: 106,
+        title: "Оголовок под сваю ф159 (250х250)",
+        imageSrc: "/images/products/ogolovok-159.png",
+        badge: "АКЦИЯ",
+        thickness: "Толщина: 4мм или другие",
+        price: "от 625 руб.",
+        category: ["caps"],
+    },
+]);
+
+const showSvai = computed(() =>
+    props.activeFilters.length === 0 || props.activeFilters.includes("screw-piles"),
+);
+
+const showCaps = computed(() =>
+    props.activeFilters.length === 0 || props.activeFilters.includes("caps"),
+);
 </script>
+
 <template>
     <div class="w-full">
-        <div
-            class="mx-auto flex max-w-[1590px] flex-wrap justify-center gap-x-5.5 gap-y-5.5 px-2.5 pb-22.5 xl:justify-around"
-        >
-            <div
-                v-for="example in filteredExamples"
-                :key="example.id"
-                class="relative h-89 w-89 overflow-hidden rounded-xl"
-                :style="{
-                    backgroundImage: `url(${getImageUrl(example.image)})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }"
-            >
-                <div
-                    class="absolute top-0 right-0 bottom-0 left-0 flex items-end bg-black/25"
-                >
-                    <p class="mb-4 ml-5 text-lg font-semibold text-white">
-                        {{ example.name }}
-                    </p>
-                </div>
-            </div>
-            <!-- Пустые элементы для выравнивания последнего ряда по левому краю на больших экранах -->
-            <div
-                v-for="n in 3"
-                :key="`dummy-${n}`"
-                class="hidden w-89 xl:block"
-            ></div>
+        <div class="mx-auto grid max-w-397.5 grid-cols-1 gap-5.5 px-2.5 pb-22.5 justify-items-center sm:justify-items-stretch sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <template v-if="showSvai">
+                <SvaiCard
+                    v-for="product in allSvai"
+                    :key="product.id"
+                    :title="product.title"
+                    :image-src="product.imageSrc"
+                    :badge="product.badge"
+                    :lengths="product.lengths"
+                    :base-price="product.basePrice"
+                    :install-price="product.installPrice"
+                />
+            </template>
+            <div v-if="showSvai && showCaps" class="col-span-full" />
+            <template v-if="showCaps">
+                <OgolovokCard
+                    v-for="product in allOgolovki"
+                    :key="product.id"
+                    :title="product.title"
+                    :image-src="product.imageSrc"
+                    :badge="product.badge"
+                    :thickness="product.thickness"
+                    :price="product.price"
+                />
+            </template>
         </div>
     </div>
 </template>
-<style scoped>
-h2 {
-    font-family: "Commissioner";
-}
-</style>

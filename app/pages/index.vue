@@ -13,6 +13,7 @@ const handleFiltersUpdate = (activeFilters: string[]) => {
         <SectionsHowWeWork />
         <FilterWorks @filters-changed="handleFiltersUpdate" />
         <SectionsExamplesProducts :active-filters="currentActiveFilters" />
+        <SectionsWorksSection />
         <SectionsContactInfo />
         <!--<SectionsPaymentMethods />-->
     </div>

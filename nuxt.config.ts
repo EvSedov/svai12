@@ -1,11 +1,13 @@
 import tailwindcss from '@tailwindcss/vite'
 
+const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || '/',
+    baseURL: env?.NUXT_APP_BASE_URL || '/',
   },
 
   css: ['~/assets/css/app.css'],

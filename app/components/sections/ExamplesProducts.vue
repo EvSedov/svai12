@@ -161,7 +161,7 @@ const showCaps = computed(() =>
 </script>
 
 <template>
-    <div class="w-full">
+    <div id="examples" class="w-full">
         <div class="mx-auto grid max-w-397.5 grid-cols-1 gap-5.5 px-2.5 pb-22.5 justify-items-center sm:justify-items-stretch sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <template v-if="showSvai">
                 <SvaiCard

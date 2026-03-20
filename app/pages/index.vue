@@ -67,6 +67,7 @@ useHead({
         <FilterWorks @filters-changed="handleFiltersUpdate" />
         <SectionsExamplesProducts :active-filters="currentActiveFilters" />
         <SectionsWorksSection />
+        <SectionsReviewsSection />
         <SectionsContactInfo />
         <!--<SectionsPaymentMethods />-->
     </div>

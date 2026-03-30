@@ -6,7 +6,7 @@ const assetPath = usePublicAsset();
 <template>
     <div class="footer border-t border-[#F3F3F3] py-8">
         <div
-            class="mx-auto grid w-fit max-w-305 grid-cols-1 gap-y-8 px-4 md:grid-cols-2 md:px-6 lg:gap-x-12 lg:px-8 xl:grid-cols-3 xl:gap-x-22">
+            class="mx-auto flex w-fit max-w-305 flex-col-reverse gap-y-8 px-4 md:grid md:grid-cols-2 md:px-6 lg:gap-x-12 lg:px-8 xl:grid-cols-3 xl:gap-x-22">
             <div class="flex flex-col">
                 <ul class="m-0 flex flex-col p-0">
                     <li>
@@ -27,13 +27,13 @@ const assetPath = usePublicAsset();
                 </ul>
             </div>
             <div class="flex min-w-66.5 flex-col">
-                <ul class="m-0 flex flex-col p-0">
-                    <li class="mb-4.5">
+                <ul class="m-0 flex flex-col gap-3 p-0">
+                    <li>
                         <p class="text-lg/5.5 font-medium text-[#2C2C2C]">
                             Контакты
                         </p>
                     </li>
-                    <li class="mb-3.25">
+                    <li>
                         <a href="tel:+79877330011" class="flex w-fit">
                             <p
                                 class="w-fit rounded-md px-1 py-0.5 text-base/6.5 font-semibold text-content-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
@@ -41,7 +41,7 @@ const assetPath = usePublicAsset();
                             </p>
                         </a>
                     </li>
-                    <li class="mb-4">
+                    <li>
                         <a class="rounded-md px-1 py-0.5 text-base/6.5 font-semibold text-[#FF8D00] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]"
                             href="mailto:svai12@mail.ru">
                             svai12@mail.ru
@@ -51,6 +51,16 @@ const assetPath = usePublicAsset();
                         <span class="block max-w-73 leading-relaxed">
                             Республика Марий Эл, Оршанский район, д.Лужбеляк, ул.Центральная,25
                         </span>
+                    </li>
+                    <li class="pt-3">
+                        <p class="text-lg/5.5 font-medium text-[#2C2C2C]">
+                            Реквизиты
+                        </p>
+                    </li>
+                    <li class="space-y-1 text-sm leading-relaxed font-normal text-[#2C2C2C]">
+                        <span class="block">ИП Красноперов Дмитрий Николаевич</span>
+                        <span class="block">ОГРНИП: 3251200000031256</span>
+                        <span class="block">ИНН: 121001898401</span>
                     </li>
                 </ul>
             </div>

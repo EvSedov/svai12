@@ -3,22 +3,7 @@ import { ref, watch, onUnmounted } from "vue";
 import ContactMap from "@/components/ContactMap.vue";
 import FaqAccordion from "@/components/FaqAccordion.vue";
 import ContactDetails from "@/components/ContactDetails.vue";
-
-// Данные для FAQ
-const faqItems = [
-    {
-        question: "Как сделать заказ?",
-        answer: "Подробная информация о процессе оформления заказа в нашей компании.",
-    },
-    {
-        question: "Как покупать в рассрочку?",
-        answer: "Подробная информация о возможностях покупки товаров в рассрочку.",
-    },
-    {
-        question: "Как начисляется кэшбэк?",
-        answer: "Детальная информация о программе лояльности и начислении кэшбэка.",
-    },
-];
+import { faqGroups } from "@/data/faq";
 
 const isMapZoomed = ref(false); // Reactive property to control map zoom
 
@@ -64,7 +49,7 @@ onUnmounted(() => {
                     <ContactMap @click="toggleMapZoom" class="cursor-pointer" />
 
                     <!-- FAQ секция (перемещена под карту) -->
-                    <FaqAccordion :items="faqItems" id="faqs" />
+                    <FaqAccordion :groups="faqGroups" id="faqs" />
                 </div>
 
                 <!-- Контактная информация (правая часть) -->

@@ -34,22 +34,22 @@ const assetPath = usePublicAsset();
                         </p>
                     </li>
                     <li>
-                        <a href="tel:+79877330011" class="flex w-fit">
+                        <a href="tel:+79933881308" class="flex w-fit">
                             <p
                                 class="w-fit rounded-md px-1 py-0.5 text-base/6.5 font-semibold text-content-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]">
-                                +7 (987) 733-00-11
+                                +7 (993) 388-13-08
                             </p>
                         </a>
                     </li>
                     <li>
                         <a class="rounded-md px-1 py-0.5 text-base/6.5 font-semibold text-[#FF8D00] transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#FFF3E4]"
-                            href="mailto:svai12@mail.ru">
-                            svai12@mail.ru
+                            href="mailto:svai12@inbox.ru">
+                            svai12@inbox.ru
                         </a>
                     </li>
                     <li class="text-sm leading-relaxed font-normal text-[#2C2C2C]">
                         <span class="block max-w-73 leading-relaxed">
-                            Республика Марий Эл, Оршанский район, д.Лужбеляк, ул.Центральная,25
+                            Респ. Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, помещ.&nbsp;№&nbsp;2к
                         </span>
                     </li>
                     <li class="pt-3">

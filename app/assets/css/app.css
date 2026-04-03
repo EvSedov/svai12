@@ -162,9 +162,15 @@
   --color-bg-main: #f7f7f7;
   --color-bg-white: #ffffff;
   --color-text-dark: rgba(0, 0, 0, 0.8);
+  --color-text-soft: rgba(0, 0, 0, 0.54);
+  --color-text-faint: rgba(0, 0, 0, 0.4);
   --color-success: #74c74d;
+  --color-success-bright: #80d352;
   --color-border-light: #dddfe0;
   --color-border-section: #f3f3f3;
+  --color-surface-muted: #f6f7f8;
+  --color-input-fill: rgba(36, 74, 127, 0.06);
+  --color-link-accent: #126df7;
 }
 
 @theme inline {

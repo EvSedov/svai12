@@ -67,7 +67,7 @@ onUnmounted(() => {
         <div class="relative z-10 flex max-h-[90vh] w-[90vw] flex-col overflow-hidden rounded-3xl bg-white shadow-lg">
             <!-- Close button for zoomed map -->
             <button @click="toggleMapZoom"
-                class="absolute top-4 right-4 z-20 shrink-0 rounded-full bg-white p-2 text-[#000000CC] transition-all duration-300 ease-in-out hover:scale-110 hover:text-gray-700 active:translate-y-0.5 active:scale-95">
+                class="absolute top-4 right-4 z-20 shrink-0 rounded-full bg-white p-2 text-text-dark transition-all duration-300 ease-in-out hover:scale-110 hover:text-gray-700 active:translate-y-0.5 active:scale-95">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

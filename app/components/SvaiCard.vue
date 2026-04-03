@@ -54,7 +54,7 @@ defineEmits<{
 
         <div class="mb-4 flex items-center gap-2">
             <span
-                :class="props.inStock ? 'bg-[#80D352]' : 'bg-black/20'"
+                :class="props.inStock ? 'bg-success-bright' : 'bg-black/20'"
                 class="h-2.5 w-2.5 shrink-0 rounded-full"
             />
             <span class="text-4.5 leading-none font-medium tracking-[0.02em] text-black/45">
@@ -74,7 +74,7 @@ defineEmits<{
                 <span
                     v-for="length in props.lengths"
                     :key="length"
-                    class="inline-flex min-h-8 items-center rounded-md bg-[#FFF4E7] px-2.5 text-4.5 leading-none font-medium tracking-[0.02em] text-brand"
+                    class="inline-flex min-h-8 items-center rounded-md bg-brand-light px-2.5 text-4.5 leading-none font-medium tracking-[0.02em] text-brand"
                 >
                     {{ length }}
                 </span>

@@ -135,7 +135,7 @@ watch(isOpen, (newValue) => {
     <div class="custom-select-container relative">
         <!-- Видимый элемент, который заменяет нативный select -->
         <div
-            class="flex w-full cursor-pointer items-center justify-between rounded-xl bg-[#244A7F0F] px-4 py-3 text-[16px] leading-[1.5em] text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2 focus:ring-blue-500"
+            class="flex w-full cursor-pointer items-center justify-between rounded-xl bg-input-fill px-4 py-3 text-[16px] leading-[1.5em] text-text-soft placeholder:text-text-soft outline-none focus:ring-2 focus:ring-blue-500"
             @click="toggleDropdown"
         >
             <span class="w-[90%] flex-grow">{{ displayedValue }}</span>
@@ -190,13 +190,13 @@ watch(isOpen, (newValue) => {
                     v-for="option in options"
                     :key="option.value"
                     @click="selectOption(option)"
-                    class="cursor-pointer px-4 py-2 text-[16px] leading-[1.5em] text-[#000000CC] hover:bg-[#FFF3E4]"
+                    class="cursor-pointer px-4 py-2 text-[16px] leading-[1.5em] text-text-dark hover:bg-brand-light"
                     :class="{ 'bg-blue-50': isOptionSelected(option.value) }"
                 >
                     {{ option.label }}
                     <span
                         v-if="multiple && isOptionSelected(option.value)"
-                        class="float-right text-[#FF8D00]"
+                        class="float-right text-brand"
                     >
                         <svg
                             class="h-5 w-5"

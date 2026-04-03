@@ -128,19 +128,19 @@ const delayedScrollToSection = (targetId: string) => {
         <div class="flex flex-col items-center space-y-2 px-4 text-sm md:items-start">
             <div class="flex items-center gap-1">
                 <a href="tel:+79933881308"
-                    class="rounded-md px-1 py-0.5 font-(family-name:--font-tt-norms) text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
+                    class="rounded-md px-1 py-0.5 font-(family-name:--font-tt-norms) text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-brand"
                     @click="handleLinkClick">+7 (993) 388-13-08</a>
                 <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp" class="ml-1 h-4 w-4" />
                 <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм" class="ml-1 h-4 w-4" />
             </div>
 
             <a href="mailto:svai12@inbox.ru"
-                class="mt-2 rounded-md px-1 py-0.5 text-xs text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
+                class="mt-2 rounded-md px-1 py-0.5 text-xs text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:text-brand"
                 @click="handleLinkClick">svai12@inbox.ru</a>
         </div>
 
         <Button
-            class="mt-4 box-border w-fit rounded-md border-2 border-[#B16303] bg-[#FF8D00] px-6 py-3 text-base font-semibold tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-[#B16303] md:ml-4"
+            class="mt-4 box-border w-fit rounded-md border-2 border-brand-border bg-brand px-6 py-3 text-base font-semibold tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-brand-border md:ml-4"
             @click="
                 () => {
                     handleLinkClick();

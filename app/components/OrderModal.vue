@@ -231,7 +231,7 @@ onUnmounted(() => {
                 >
                     <div class="mb-4">
                         <h3
-                            class="text-3.5 leading-normal font-normal text-[#0000008A]"
+                            class="text-3.5 leading-normal font-normal text-text-soft"
                         >
                             Шкала заполнения формы:
                         </h3>
@@ -243,7 +243,7 @@ onUnmounted(() => {
                     </div>
                     <!-- Progress Bar -->
                     <div
-                        class="mb-2 h-2 w-full max-w-51 rounded-md bg-[#F6F7F8]"
+                        class="mb-2 h-2 w-full max-w-51 rounded-md bg-surface-muted"
                     >
                         <div
                             class="h-2 rounded-md bg-brand"
@@ -251,7 +251,7 @@ onUnmounted(() => {
                         ></div>
                     </div>
                     <p
-                        class="text-3.5 leading-normal font-normal text-[#0000008A]"
+                        class="text-3.5 leading-normal font-normal text-text-soft"
                     >
                         +2% за каждый пункт
                     </p>
@@ -276,7 +276,7 @@ onUnmounted(() => {
                                 type="text"
                                 placeholder="Введите ФИО*"
                                 :class="[
-                                    'w-full rounded-xl bg-[#244A7F0F] px-4 py-3 text-4 leading-normal text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2',
+                                    'w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2',
                                     validationErrors.fullName
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
@@ -303,7 +303,7 @@ onUnmounted(() => {
                                 type="text"
                                 placeholder="Какой тип услуги Вам нужен?"
                                 :class="[
-                                    'w-full rounded-xl bg-[#244A7F0F] px-4 py-3 text-4 leading-normal text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2',
+                                    'w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2',
                                     validationErrors.selectedService
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
@@ -329,7 +329,7 @@ onUnmounted(() => {
                                 type="tel"
                                 placeholder="Введите номер телефона*"
                                 :class="[
-                                    'w-full rounded-xl bg-[#244A7F0F] px-4 py-3 text-4 leading-normal text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2',
+                                    'w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2',
                                     validationErrors.phoneNumber
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
@@ -355,7 +355,7 @@ onUnmounted(() => {
                             <textarea
                                 placeholder="Введите описание"
                                 :class="[
-                                    'h-32 w-full rounded-xl bg-[#244A7F0F] px-4 py-3 text-4 leading-normal text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2',
+                                    'h-32 w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2',
                                     validationErrors.description
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
@@ -380,7 +380,7 @@ onUnmounted(() => {
                                 type="number"
                                 placeholder="Введите количество"
                                 :class="[
-                                    'w-full rounded-xl bg-[#244A7F0F] px-4 py-3 text-4 leading-normal text-[#0000008A] placeholder-[#0000008A] outline-none focus:ring-2',
+                                    'w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2',
                                     validationErrors.quantity
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
@@ -412,14 +412,14 @@ onUnmounted(() => {
                             />
                             <label
                                 for="agreement"
-                                class="text-3.25 leading-[1.53em] font-normal text-[rgba(0,0,0,0.4)]"
+                                class="text-3.25 leading-[1.53em] font-normal text-text-faint"
                             >
                                 Заполняя форму, я принимаю
                                 <a
                                     :href="assetPath('/docs/Оферта.pdf')"
                                     download="Оферта.pdf"
                                     target="_blank"
-                                    class="text-[#126DF7]"
+                                    class="text-link-accent"
                                 >
                                     условия передачи информации
                                 </a>
@@ -428,7 +428,7 @@ onUnmounted(() => {
                                     :href="assetPath('/docs/Соглашение.pdf')"
                                     download="Соглашение.pdf"
                                     target="_blank"
-                                    class="text-[#126DF7]"
+                                    class="text-link-accent"
                                 >
                                     согласие
                                 </a>

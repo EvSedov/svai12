@@ -1,49 +1,40 @@
 <script setup lang="ts">
-import Button from "@/components/ui/button/Button.vue";
-
 interface Props {
     imageSrc: string;
     imageAlt?: string;
     title: string;
-    description: string;
-    buttonLabel?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     imageAlt: "",
-    buttonLabel: "Узнать подробнее",
 });
 
 defineEmits<{
-    details: [];
+    open: [];
 }>();
 </script>
 
 <template>
-    <article class="flex w-full max-w-148.75 flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
-        <div class="aspect-video w-full overflow-hidden">
+    <article
+        class="flex w-full cursor-pointer flex-col overflow-hidden rounded-[14px] bg-white shadow-[0_12px_32px_rgba(44,44,44,0.12)] transition-transform duration-300 hover:-translate-y-1"
+        @click="$emit('open')"
+    >
+        <div class="aspect-[4/3] w-full overflow-hidden bg-bg-main">
             <img
                 :src="props.imageSrc"
                 :alt="props.imageAlt || props.title"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             />
         </div>
 
-        <div class="flex flex-1 flex-col p-6">
-            <h3 class="mb-3 font-montserrat text-6 leading-snug font-semibold tracking-[0.02em] text-black/80">
-                {{ props.title }}
-            </h3>
-
-            <p class="mb-6 flex-1 text-5 leading-relaxed tracking-[0.01em] text-black/60">
-                {{ props.description }}
+        <div class="p-5 md:p-6">
+            <p class="mb-2 text-3.5 font-semibold tracking-[0.12em] text-brand uppercase">
+                Адрес
             </p>
 
-            <Button
-                class="h-14 w-full rounded-2xl border-2 border-brand-border bg-brand text-8 leading-none font-semibold tracking-[0.02em] text-white hover:bg-brand-border"
-                @click="$emit('details')"
-            >
-                {{ props.buttonLabel }}
-            </Button>
+            <h3 class="font-montserrat text-5.5 leading-snug font-semibold tracking-[0.02em] text-black/80">
+                {{ props.title }}
+            </h3>
         </div>
     </article>
 </template>

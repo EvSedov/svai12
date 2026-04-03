@@ -16,7 +16,7 @@ defineEmits<{
         class="flex w-full items-center justify-between py-3.5 text-left focus:outline-none"
         @click="$emit('toggle')"
     >
-        <span class="text-2xl text-[#2C2C2C]">{{ question }}</span>
+        <span class="text-2xl text-content-primary">{{ question }}</span>
         <AccordionToggleIcon :is-open="isOpen" />
     </button>
 </template>

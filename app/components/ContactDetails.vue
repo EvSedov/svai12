@@ -21,9 +21,9 @@ const assetPath = usePublicAsset();
             </h3>
             <div>
                 <div>
-                    <a href="tel:+79021091101"
+                    <a href="tel:+79933881308"
                         class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
-                        +7 (902) 109-11-01
+                        +7 (993) 388-13-08
                     </a>
                     <span class="text-neutral-400">(Генеральный директор)</span>
                 </div>
@@ -35,15 +35,15 @@ const assetPath = usePublicAsset();
                     <span class="text-neutral-400">(Городской номер)</span>
                 </div>
                 <div>
-                    <a href="tel:+79778133227"
+                    <a href="tel:+79933881308"
                         class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
-                        +7 (977) 813-32-27
+                        +7 (993) 388-13-08
                     </a>
                     <span class="text-neutral-400">(Прием заказов, консультация, сопровождение клиентов)</span>
                 </div>
                 <div>
-                    <a href="mailto:svai12@mail.ru"
-                        class="rounded-md px-1 py-0.5 text-brand transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">svai12@mail.ru</a>
+                    <a href="mailto:svai12@inbox.ru"
+                        class="rounded-md px-1 py-0.5 text-brand transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">svai12@inbox.ru</a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@ const assetPath = usePublicAsset();
         <div class="mb-6">
             <h3 class="mb-2 font-medium text-neutral-900">Адрес:</h3>
             <p class="text-neutral-700">
-                г.&nbsp;Чебоксары, улица 10-ой Пятилетки&nbsp;2, кор.&nbsp;5, строение&nbsp;1
+                Респ.&nbsp;Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, помещ.&nbsp;№&nbsp;2к
             </p>
         </div>
 

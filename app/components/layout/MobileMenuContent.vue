@@ -127,16 +127,16 @@ const delayedScrollToSection = (targetId: string) => {
     <div class="mt-4 flex flex-col items-center border-t border-gray-200 p-4 md:items-start">
         <div class="flex flex-col items-center space-y-2 px-4 text-sm md:items-start">
             <div class="flex items-center gap-1">
-                <a href="tel:+79021091101"
+                <a href="tel:+79933881308"
                     class="rounded-md px-1 py-0.5 font-(family-name:--font-tt-norms) text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
-                    @click="handleLinkClick">+7 (902) 109-11-01</a>
+                    @click="handleLinkClick">+7 (993) 388-13-08</a>
                 <img :src="assetPath('/icons/i-social-whatsapp.png')" alt="Иконка социальной сети WhatsApp" class="ml-1 h-4 w-4" />
                 <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм" class="ml-1 h-4 w-4" />
             </div>
 
-            <a href="mailto:svai12@mail.ru"
+            <a href="mailto:svai12@inbox.ru"
                 class="mt-2 rounded-md px-1 py-0.5 text-xs text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:text-[#FF8D00]"
-                @click="handleLinkClick">svai12@mail.ru</a>
+                @click="handleLinkClick">svai12@inbox.ru</a>
         </div>
 
         <Button

@@ -11,10 +11,10 @@ const siteUrl = "https://evsedov.github.io/svai12";
 useSeoMeta({
     title: "Монтаж и продажа винтовых свай в Чебоксарах",
     description:
-        "Монтаж винтовых свай в Чебоксарах с опытом 15+ лет. Сваи ф57–159 мм. Расчёт бесплатно. Звоните: +7 (902) 109-11-01",
+        "Монтаж винтовых свай в Чебоксарах с опытом 15+ лет. Сваи ф57–159 мм. Расчёт бесплатно. Звоните: +7 (993) 388-13-08",
     ogTitle: "Монтаж и продажа винтовых свай в Чебоксарах | СВАИ+",
     ogDescription:
-        "Монтаж винтовых свай в Чебоксарах с опытом 15+ лет. Сваи ф57–159 мм. Расчёт бесплатно. Звоните: +7 (902) 109-11-01",
+        "Монтаж винтовых свай в Чебоксарах с опытом 15+ лет. Сваи ф57–159 мм. Расчёт бесплатно. Звоните: +7 (993) 388-13-08",
     ogType: "website",
     ogUrl: siteUrl,
     ogImage: `${siteUrl}/images/hero-bg.jpg`,
@@ -30,13 +30,13 @@ useHead({
                 "@type": "LocalBusiness",
                 name: "СВАИ+",
                 url: siteUrl,
-                telephone: "+7-902-109-11-01",
-                email: "svai12@mail.ru",
+                telephone: "+7-993-388-13-08",
+                email: "svai12@inbox.ru",
                 address: {
                     "@type": "PostalAddress",
-                    streetAddress: "улица 10-ой Пятилетки 2, кор. 5, строение 1",
-                    addressLocality: "Чебоксары",
-                    addressRegion: "Чувашская Республика",
+                    streetAddress: "ул. Красноармейская слобода, дом 44, помещ. № 2к",
+                    addressLocality: "Йошкар-Ола",
+                    addressRegion: "Республика Марий Эл",
                     addressCountry: "RU",
                 },
                 openingHoursSpecification: [

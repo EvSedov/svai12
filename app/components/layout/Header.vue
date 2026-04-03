@@ -25,13 +25,13 @@ const assetPath = usePublicAsset();
                             <img :src="assetPath('/icons/i-social-tg.png')" alt="Иконка социальной сети телеграмм"
                                 class="mr-1 h-4 w-4" />
                         </span>
-                        <a href="tel:+79021091101"
+                        <a href="tel:+79933881308"
                             class="rounded-md px-1 py-0.5 font-tt-norms text-base font-medium leading-none tracking-[0.02em] uppercase text-center align-middle whitespace-nowrap text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">+7
-                            (902) 109-11-01</a>
+                            (993) 388-13-08</a>
                     </div>
 
-                    <a href="mailto:svai12@mail.ru"
-                        class="rounded-md px-1 py-0.5 text-xs whitespace-nowrap text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">svai12@mail.ru</a>
+                    <a href="mailto:svai12@inbox.ru"
+                        class="rounded-md px-1 py-0.5 text-xs whitespace-nowrap text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">svai12@inbox.ru</a>
                 </div>
             </div>
 

@@ -11,6 +11,18 @@ interface Props {
     lengths: Array<number | string>;
     basePrice: string;
     installPrice: string;
+    priceRows?: Array<{
+        length: number | string;
+        price: string;
+    }>;
+    defaultCap?: string;
+    capOptions?: string[];
+    capPrices?: Array<{
+        size: string;
+        price: string;
+    }>;
+    capSelectionNote?: string;
+    withoutCapDiscount?: string;
     basePriceLabel?: string;
     installPriceLabel?: string;
     buttonLabel?: string;
@@ -66,7 +78,28 @@ defineEmits<{
             {{ props.title }}
         </h3>
 
-        <div class="mb-3">
+        <div v-if="props.priceRows?.length" class="mb-5">
+            <p class="mb-3 text-4 leading-none font-medium tracking-[0.08em] text-black/55 uppercase">
+                Цены по длинам
+            </p>
+
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                <div
+                    v-for="row in props.priceRows"
+                    :key="row.length"
+                    class="flex items-center justify-between gap-2 rounded-xl bg-bg-main px-2.5 py-2"
+                >
+                    <span class="whitespace-nowrap text-4 leading-none font-medium tracking-[0.01em] text-content-primary">
+                        {{ row.length }}&nbsp;мм
+                    </span>
+                    <span class="whitespace-nowrap text-right text-4 leading-none font-semibold tracking-[0.01em] text-brand">
+                        {{ row.price.replace(" руб.", "\u00A0руб.") }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="!props.priceRows?.length" class="mb-3">
             <p class="mb-3 text-5.5 leading-none font-medium tracking-[0.02em] text-black/65">
                 Длина (мм):
             </p>
@@ -81,7 +114,7 @@ defineEmits<{
             </div>
         </div>
 
-        <div class="mb-5 flex flex-col gap-4">
+        <div v-if="!props.priceRows?.length" class="mb-5 flex flex-col gap-4">
             <div class="flex items-end justify-between gap-4">
                 <span class="text-8 leading-none font-medium tracking-[0.02em] text-black/75">
                     {{ props.basePriceLabel }}
@@ -101,11 +134,38 @@ defineEmits<{
             </div>
         </div>
 
-        <Button
-            class="mt-auto h-14 w-full rounded-2xl border-2 border-brand-border bg-brand text-8 leading-none font-semibold tracking-[0.02em] text-white hover:bg-brand-border"
-            @click="$emit('order')"
-        >
-            {{ props.buttonLabel }}
-        </Button>
+        <div class="mt-auto">
+            <div
+                v-if="props.defaultCap || props.capOptions?.length || props.capPrices?.length || props.withoutCapDiscount"
+                class="mb-5 rounded-2xl border border-brand/15 bg-brand-light px-3 py-3"
+            >
+                <p class="mb-2 text-3.5 leading-none font-semibold tracking-[0.08em] text-brand uppercase">
+                    Комплектация
+                </p>
+
+            <div class="space-y-1.5 text-3.75 leading-tight text-content-primary">
+                <p v-if="props.defaultCap || props.capOptions?.length || props.capPrices?.length">
+                    Оголовки:
+                </p>
+
+                <div v-if="props.capPrices?.length" class="space-y-1 pt-1">
+                    <p v-for="cap in props.capPrices" :key="cap.size">
+                        <span class="font-semibold">{{ cap.size }}</span> — {{ cap.price.replace(" руб.", "\u00A0руб.") }}
+                    </p>
+                </div>
+
+                <p v-if="props.capSelectionNote">
+                    Другие размеры — под заказ
+                </p>
+            </div>
+        </div>
+
+            <Button
+                class="h-14 w-full rounded-2xl border-2 border-brand-border bg-brand text-8 leading-none font-semibold tracking-[0.02em] text-white hover:bg-brand-border"
+                @click="$emit('order')"
+            >
+                {{ props.buttonLabel }}
+            </Button>
+        </div>
     </article>
 </template>

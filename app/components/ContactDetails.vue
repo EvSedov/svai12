@@ -25,20 +25,6 @@ const assetPath = usePublicAsset();
                         class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
                         +7 (993) 388-13-08
                     </a>
-                    <span class="text-neutral-400">(Генеральный директор)</span>
-                </div>
-                <div>
-                    <a href="tel:+74993985601"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
-                        +7 (499) 398-56-01
-                    </a>
-                    <span class="text-neutral-400">(Городской номер)</span>
-                </div>
-                <div>
-                    <a href="tel:+79933881308"
-                        class="rounded-md px-1 py-0.5 text-gray-900 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-light">
-                        +7 (993) 388-13-08
-                    </a>
                     <span class="text-neutral-400">(Прием заказов, консультация, сопровождение клиентов)</span>
                 </div>
                 <div>

@@ -79,8 +79,8 @@ defineEmits<{
         </h3>
 
         <div v-if="props.priceRows?.length" class="mb-5">
-            <p class="mb-3 text-4 leading-none font-medium tracking-[0.08em] text-black/55 uppercase">
-                Цены по длинам
+            <p class="mb-3 text-4 leading-none font-medium tracking-hero-cta-primary text-black/55 uppercase">
+                Длина (мм):
             </p>
 
             <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -100,7 +100,7 @@ defineEmits<{
         </div>
 
         <div v-if="!props.priceRows?.length" class="mb-3">
-            <p class="mb-3 text-5.5 leading-none font-medium tracking-[0.02em] text-black/65">
+            <p class="mb-3 text-5.5 leading-none font-medium tracking-[0.02em] text-black/65 uppercase">
                 Длина (мм):
             </p>
             <div class="flex flex-wrap gap-2">
@@ -139,7 +139,7 @@ defineEmits<{
                 v-if="props.defaultCap || props.capOptions?.length || props.capPrices?.length || props.withoutCapDiscount"
                 class="mb-5 rounded-2xl border border-brand/15 bg-brand-light px-3 py-3"
             >
-                <p class="mb-2 text-3.5 leading-none font-semibold tracking-[0.08em] text-brand uppercase">
+                <p class="mb-2 text-3.5 leading-none font-semibold tracking-hero-cta-primary text-brand uppercase">
                     Комплектация
                 </p>
 

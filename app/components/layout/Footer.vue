@@ -1,6 +1,39 @@
 <script setup lang="ts">
 import Logo from "@/components/Logo.vue";
+import { scrollToSection } from "@/lib/utils";
+
 const assetPath = usePublicAsset();
+const route = useRoute();
+
+const infoLinks = [
+    { label: "Главная", href: "#hero" },
+    { label: "О нас", href: "#how-we-work" },
+    { label: "Каталог винтовых свай", href: "#examples" },
+    { label: "Примеры работ", href: "#portfolio" },
+    { label: "Контакты", href: "#contacts" },
+    { label: "Реальные отзывы", href: "#reviews" },
+    { label: "Вопросы/Ответы", href: "#faqs" },
+    { label: "Пользовательское соглашение" },
+    { label: "Публичная оферта" },
+];
+
+const handleInfoClick = async (event: Event) => {
+    const targetElement = event.currentTarget as HTMLAnchorElement;
+    const href = targetElement.getAttribute("href");
+
+    if (!href || !href.startsWith("#")) {
+        return;
+    }
+
+    event.preventDefault();
+
+    if (route.path === "/") {
+        scrollToSection(href);
+        return;
+    }
+
+    await navigateTo(`/${href}`);
+};
 </script>
 
 <template>
@@ -73,10 +106,19 @@ const assetPath = usePublicAsset();
                     </li>
                     <li class="">
                         <ul class="text-sm leading-6.25 font-normal text-content-primary underline">
-                            <li><span>Контакты</span></li>
-                            <li><span>Реальные отзывы</span></li>
-                            <li><span>Пользовательское соглашение</span></li>
-                            <li><span>Публичная оферта</span></li>
+                            <li v-for="item in infoLinks" :key="item.label">
+                                <a
+                                    v-if="item.href"
+                                    :href="item.href"
+                                    class="transition-colors hover:text-brand"
+                                    @click="handleInfoClick"
+                                >
+                                    {{ item.label }}
+                                </a>
+                                <span v-else>
+                                    {{ item.label }}
+                                </span>
+                            </li>
                         </ul>
                     </li>
                 </ul>

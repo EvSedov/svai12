@@ -6,6 +6,11 @@ const env = (globalThis as { process?: { env?: Record<string, string | undefined
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      turnstileSiteKey: env?.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
+    },
+  },
   app: {
     baseURL: env?.NUXT_APP_BASE_URL || '/',
     head: {

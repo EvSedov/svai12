@@ -1,13 +1,32 @@
 <script setup lang="ts">
 const assetPath = usePublicAsset();
 
-import { watch, onUnmounted, computed, ref, reactive } from "vue";
+import { watch, onUnmounted, onMounted, computed, ref, reactive, nextTick } from "vue";
 import { useErrorHandler } from "@/composables/useErrorHandler";
 import {
     validateForm,
     validationRules,
     formatPhoneNumber,
 } from "@/lib/validation";
+
+type TurnstileRenderOptions = {
+    sitekey: string;
+    callback?: (token: string) => void;
+    "expired-callback"?: () => void;
+    "error-callback"?: () => void;
+};
+
+type TurnstileApi = {
+    render: (container: string | HTMLElement, options: TurnstileRenderOptions) => string | number;
+    reset: (widgetId?: string | number) => void;
+    remove?: (widgetId?: string | number) => void;
+};
+
+declare global {
+    interface Window {
+        turnstile?: TurnstileApi;
+    }
+}
 
 const props = defineProps({
     modelValue: {
@@ -19,10 +38,18 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const { showError, showSuccess, isLoading } = useErrorHandler();
+const runtimeConfig = useRuntimeConfig();
 
 const validationErrors = ref<Record<string, string>>({});
 const selectedFile = ref<File | null>(null);
 const fileInputRef = ref<HTMLInputElement | null>(null);
+const turnstileContainerRef = ref<HTMLDivElement | null>(null);
+const turnstileToken = ref("");
+const turnstileWidgetId = ref<string | number | null>(null);
+const isTurnstileScriptLoading = ref(false);
+const turnstileScriptFailed = ref(false);
+const turnstileSiteKey = computed(() => runtimeConfig.public.turnstileSiteKey || "");
+const isTurnstileEnabled = computed(() => turnstileSiteKey.value.trim() !== "");
 
 const form = reactive({
     fullName: "",
@@ -30,8 +57,34 @@ const form = reactive({
     phoneNumber: "",
     address: "",
     description: "",
+    website: "",
+    formStartedAt: Date.now(),
     discount: 0,
 });
+
+const clearFormError = () => {
+    if (validationErrors.value.form) {
+        const { form, ...rest } = validationErrors.value;
+        validationErrors.value = rest;
+    }
+};
+
+const setFormError = (message: string) => {
+    validationErrors.value = {
+        ...validationErrors.value,
+        form: message,
+    };
+};
+
+const normalizeValidationErrors = (errors: Record<string, string | string[]>) => {
+    const normalized: Record<string, string> = {};
+
+    for (const [key, value] of Object.entries(errors)) {
+        normalized[key] = Array.isArray(value) ? value[0] ?? "" : value;
+    }
+
+    return normalized;
+};
 
 const resetForm = () => {
     form.fullName = "";
@@ -39,11 +92,15 @@ const resetForm = () => {
     form.phoneNumber = "";
     form.address = "";
     form.description = "";
+    form.website = "";
+    form.formStartedAt = Date.now();
     form.discount = 0;
     selectedFile.value = null;
+    turnstileToken.value = "";
 };
 
 const closeModal = () => {
+    resetTurnstileWidget();
     resetForm();
     validationErrors.value = {};
     emit("update:modelValue", false);
@@ -100,6 +157,114 @@ const handleFileChange = (event: Event) => {
     selectedFile.value = target.files?.[0] ?? null;
 };
 
+const resetTurnstileWidget = () => {
+    if (!import.meta.client || !window.turnstile) {
+        return;
+    }
+
+    turnstileToken.value = "";
+    clearFormError();
+
+    if (turnstileWidgetId.value !== null) {
+        window.turnstile.reset(turnstileWidgetId.value);
+    }
+};
+
+const loadTurnstileScript = async () => {
+    if (!import.meta.client || !isTurnstileEnabled.value) {
+        return;
+    }
+
+    if (window.turnstile) {
+        return;
+    }
+
+    if (isTurnstileScriptLoading.value) {
+        while (isTurnstileScriptLoading.value) {
+            await new Promise((resolve) => setTimeout(resolve, 50));
+        }
+        return;
+    }
+
+    isTurnstileScriptLoading.value = true;
+
+    try {
+        await new Promise<void>((resolve, reject) => {
+            let existingScript = document.querySelector<HTMLScriptElement>(
+                'script[data-turnstile-script="true"]',
+            );
+
+            if (existingScript) {
+                if (turnstileScriptFailed.value) {
+                    existingScript.remove();
+                    existingScript = null;
+                    turnstileScriptFailed.value = false;
+                } else {
+                    existingScript.addEventListener("load", () => resolve(), { once: true });
+                    existingScript.addEventListener("error", () => {
+                        turnstileScriptFailed.value = true;
+                        reject(new Error("turnstile-load-failed"));
+                    }, { once: true });
+                    return;
+                }
+            }
+
+            if (!existingScript) {
+                const script = document.createElement("script");
+                script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+                script.async = true;
+                script.defer = true;
+                script.dataset.turnstileScript = "true";
+                script.onload = () => {
+                    turnstileScriptFailed.value = false;
+                    resolve();
+                };
+                script.onerror = () => {
+                    turnstileScriptFailed.value = true;
+                    reject(new Error("turnstile-load-failed"));
+                };
+                document.head.appendChild(script);
+            }
+        });
+    } finally {
+        isTurnstileScriptLoading.value = false;
+    }
+};
+
+const renderTurnstile = async () => {
+    if (!import.meta.client || !isTurnstileEnabled.value) {
+        return;
+    }
+
+    await nextTick();
+    await loadTurnstileScript();
+
+    if (!window.turnstile || !turnstileContainerRef.value) {
+        return;
+    }
+
+    if (turnstileWidgetId.value !== null) {
+        window.turnstile.reset(turnstileWidgetId.value);
+        return;
+    }
+
+    turnstileWidgetId.value = window.turnstile.render(turnstileContainerRef.value, {
+        sitekey: turnstileSiteKey.value,
+        callback: (token: string) => {
+            turnstileToken.value = token;
+            clearFormError();
+        },
+        "expired-callback": () => {
+            turnstileToken.value = "";
+            setFormError("Проверка истекла. Подтвердите, что вы не робот, еще раз.");
+        },
+        "error-callback": () => {
+            turnstileToken.value = "";
+            setFormError("Не удалось загрузить проверку. Обновите форму и попробуйте еще раз.");
+        },
+    });
+};
+
 const triggerFileInput = () => {
     fileInputRef.value?.click();
 };
@@ -110,6 +275,13 @@ const handleSubmitOrder = async () => {
         return;
     }
 
+    if (isTurnstileEnabled.value && !turnstileToken.value) {
+        setFormError("Подтвердите, что вы не робот.");
+        showError("Подтвердите, что вы не робот.");
+        return;
+    }
+
+    clearFormError();
     form.discount = discountPercentage.value;
 
     isLoading.value = true;
@@ -120,7 +292,10 @@ const handleSubmitOrder = async () => {
         formData.append("phoneNumber", form.phoneNumber);
         formData.append("address", form.address);
         formData.append("description", form.description);
+        formData.append("website", form.website);
+        formData.append("formStartedAt", String(form.formStartedAt));
         formData.append("discount", String(form.discount));
+        formData.append("cf-turnstile-response", turnstileToken.value);
         if (selectedFile.value) {
             formData.append("file", selectedFile.value);
         }
@@ -138,7 +313,7 @@ const handleSubmitOrder = async () => {
         } else {
             const data = await response.json().catch(() => ({}));
             if (data.errors) {
-                validationErrors.value = data.errors;
+                validationErrors.value = normalizeValidationErrors(data.errors);
                 showError("Пожалуйста, исправьте ошибки в форме");
             } else {
                 showError(
@@ -153,14 +328,22 @@ const handleSubmitOrder = async () => {
     }
 };
 
+onMounted(async () => {
+    if (props.modelValue) {
+        await renderTurnstile();
+    }
+});
+
 watch(
     () => props.modelValue,
-    (newValue) => {
+    async (newValue) => {
         if (!import.meta.client) return;
         if (newValue) {
             document.body.style.overflow = "hidden";
+            await renderTurnstile();
         } else {
             document.body.style.overflow = "";
+            resetTurnstileWidget();
         }
     },
     { immediate: true },
@@ -217,6 +400,17 @@ onUnmounted(() => {
                     class="flex min-h-0 w-full grow flex-col px-4 py-4 md:px-8 md:py-8 lg:w-2/3 lg:py-12 lg:pl-16 xl:py-16 xl:pl-35">
                     <!-- Modal Body (Form) -->
                     <div class="flex min-h-0 grow flex-col gap-6 overflow-y-auto px-2.5 pb-8">
+                        <div class="hidden" aria-hidden="true">
+                            <label for="website-field">Website</label>
+                            <input
+                                id="website-field"
+                                type="text"
+                                tabindex="-1"
+                                autocomplete="off"
+                                v-model="form.website"
+                            />
+                        </div>
+
                         <!-- ФИО -->
                         <div>
                             <h3 class="mb-5 text-5.25 leading-[1.33em] font-normal text-black/80">
@@ -319,7 +513,7 @@ onUnmounted(() => {
                                 <span class="text-text-soft">(по желанию)</span>
                             </p>
                             <input ref="fileInputRef" type="file" class="hidden"
-                                accept=".pdf,.jpg,.jpeg,.png,.dwg,.doc,.docx" @change="handleFileChange" />
+                                accept=".pdf,.jpg,.jpeg,.png,.webp" @change="handleFileChange" />
                             <button type="button" @click="triggerFileInput"
                                 class="flex h-24 w-24 flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-brand bg-transparent text-brand transition-colors hover:bg-brand-light">
                                 <img :src="assetPath('/icons/file-arrow-up.svg')" alt="" class="h-8 w-8" />
@@ -332,6 +526,17 @@ onUnmounted(() => {
                                 </span>
                             </button>
                         </div>
+
+                        <div v-if="isTurnstileEnabled">
+                            <p class="mb-3 text-4 leading-normal text-black/80">
+                                Подтвердите, что вы не робот
+                            </p>
+                            <div ref="turnstileContainerRef"></div>
+                        </div>
+
+                        <p v-if="validationErrors.form" class="text-sm text-red-500">
+                            {{ validationErrors.form }}
+                        </p>
                     </div>
 
                     <!-- Footer -->

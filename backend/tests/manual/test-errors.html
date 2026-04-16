@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест системы ошибок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background: #1882F0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0066cc;
+        }
+
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 Тест системы обработки ошибок</h1>
+
+    <div class="test-section">
+        <h2>1. Тест уведомлений</h2>
+        <button onclick="testNotifications()">Показать уведомления</button>
+        <div id="notification-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Тест валидации</h2>
+        <button onclick="testValidation()">Тест валидации формы</button>
+        <div id="validation-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Тест API ошибок</h2>
+        <button onclick="testApiErrors()">Тест API запросов</button>
+        <div id="api-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Проверка основного сайта</h2>
+        <button onclick="window.open('/', '_blank')">Открыть основной сайт</button>
+        <p>Откройте основной сайт и проверьте модальное окно заказа</p>
+    </div>
+
+    <script>
+        function log(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+        }
+
+        function testNotifications() {
+            log('notification-result', '🔄 Тестируем уведомления...');
+
+            // Проверяем, есть ли система уведомлений на главной странице
+            const mainWindow = window.parent !== window ? window.parent : window;
+
+            try {
+                // Пробуем создать тестовое уведомление
+                const testDiv = document.createElement('div');
+                testDiv.style.cssText = `
+                    position: fixed; top: 20px; right: 20px; z-index: 9999;
+                    background: #10B981; color: white; padding: 15px 20px;
+                    border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    animation: slideIn 0.3s ease-out;
+                `;
+                testDiv.innerHTML = '✅ Тестовое уведомление работает!';
+
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+                document.body.appendChild(testDiv);
+
+                setTimeout(() => {
+                    testDiv.remove();
+                    style.remove();
+                }, 3000);
+
+                log('notification-result', '✅ Тестовое уведомление показано');
+            } catch (error) {
+                log('notification-result', '❌ Ошибка: ' + error.message);
+            }
+        }
+
+        function testValidation() {
+            log('validation-result', '🔄 Тестируем валидацию...');
+
+            // Создаем тестовую форму
+            const testForm = document.createElement('div');
+            testForm.innerHTML = `
+                <div style="margin: 10px 0;">
+                    <input type="text" id="test-name" placeholder="Введите имя" style="padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                    <span id="name-error" style="color: red; font-size: 12px;"></span>
+                </div>
+                <div style="margin: 10px 0;">
+                    <input type="tel" id="test-phone" placeholder="Введите телефон" style="padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                    <span id="phone-error" style="color: red; font-size: 12px;"></span>
+                </div>
+                <button onclick="validateTestForm()" style="margin: 5px;">Проверить валидацию</button>
+            `;
+
+            document.getElementById('validation-result').appendChild(testForm);
+            log('validation-result', '✅ Тестовая форма создана');
+        }
+
+        function validateTestForm() {
+            const name = document.getElementById('test-name').value;
+            const phone = document.getElementById('test-phone').value;
+
+            // Простая валидация
+            let hasErrors = false;
+
+            if (!name || name.length < 2) {
+                document.getElementById('name-error').textContent = 'Имя должно содержать минимум 2 символа';
+                document.getElementById('test-name').style.borderColor = 'red';
+                hasErrors = true;
+            } else {
+                document.getElementById('name-error').textContent = '';
+                document.getElementById('test-name').style.borderColor = 'green';
+            }
+
+            if (!phone || phone.length < 10) {
+                document.getElementById('phone-error').textContent = 'Введите корректный номер телефона';
+                document.getElementById('test-phone').style.borderColor = 'red';
+                hasErrors = true;
+            } else {
+                document.getElementById('phone-error').textContent = '';
+                document.getElementById('test-phone').style.borderColor = 'green';
+            }
+
+            if (!hasErrors) {
+                log('validation-result', '✅ Валидация прошла успешно!');
+            } else {
+                log('validation-result', '❌ Найдены ошибки валидации');
+            }
+        }
+
+        function testApiErrors() {
+            log('api-result', '🔄 Тестируем API запросы...');
+
+            // Тест различных типов ошибок
+            const tests = [
+                { url: '/api/nonexistent', expected: '404 Not Found' },
+                { url: '/submit-order', method: 'POST', data: {}, expected: 'Validation Error' }
+            ];
+
+            tests.forEach((test, index) => {
+                setTimeout(() => {
+                    const options = {
+                        method: test.method || 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    };
+
+                    if (test.data) {
+                        options.body = JSON.stringify(test.data);
+                    }
+
+                    fetch(test.url, options)
+                        .then(response => {
+                            log('api-result', `📡 ${test.url}: ${response.status} ${response.statusText}`);
+                            return response.text();
+                        })
+                        .then(data => {
+                            log('api-result', `📄 Ответ получен (${data.length} символов)`);
+                        })
+                        .catch(error => {
+                            log('api-result', `❌ Ошибка для ${test.url}: ${error.message}`);
+                        });
+                }, index * 1000);
+            });
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function () {
+            log('notification-result', '🚀 Тестовая страница загружена');
+            log('validation-result', '📝 Готов к тестированию валидации');
+            log('api-result', '🌐 Готов к тестированию API');
+        });
+    </script>
+</body>
+
+</html>

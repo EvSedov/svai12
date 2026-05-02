@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import SvaiCard from "@/components/SvaiCard.vue";
 import OgolovokCard from "@/components/OgolovokCard.vue";
 import { createOgolovokProducts, createSvaiProducts } from "@/data/products";
 
 const assetPath = usePublicAsset();
+const openOrderModal = inject<() => void>("openOrderModal");
 
 interface Props {
     activeFilters: string[];
@@ -44,6 +45,7 @@ const showCaps = computed(() =>
                     :cap-prices="product.capPrices"
                     :cap-selection-note="product.capSelectionNote"
                     :without-cap-discount="product.withoutCapDiscount"
+                    @order="openOrderModal?.()"
                 />
             </template>
             <div v-if="showSvai && showCaps" class="h-0 basis-full" />
@@ -56,6 +58,7 @@ const showCaps = computed(() =>
                     :badge="product.badge"
                     :thickness="product.thickness"
                     :price="product.price"
+                    @order="openOrderModal?.()"
                 />
             </template>
         </div>

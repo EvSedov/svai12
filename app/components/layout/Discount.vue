@@ -9,7 +9,7 @@ const openOrderModal = inject("openOrderModal") as () => void;
         <div class="discount mx-auto flex-col xl:flex-row">
             <p
                 class="mb-2 text-center font-[Commissioner] text-xl/5.5 font-bold tracking-normal text-white uppercase xl:mb-0">
-                Скидка 5% через онлайн заявку при заказе от 200 000 ₽! 
+                Скидка 5% через онлайн заявку при заказе от 200&nbsp;000 ₽!
             </p>
             <Button
                 class="m-0 ml-[11.6px] h-6.25 bg-white px-2.5 py-0 text-[10px] text-content-primary hover:bg-gray-300"

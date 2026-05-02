@@ -37,7 +37,7 @@ onUnmounted(() => {
         <div class="mx-auto max-w-292.5 px-4 md:px-6 lg:px-8">
             <!-- Заголовок секции -->
             <h2
-                class="mb-8 text-center font-montserrat text-hero-title-tablet leading-8 font-semibold tracking-[0.02em] text-black md:mb-10 md:text-hero-title-desktop">
+                class="mb-8 text-center font-montserrat text-hero-title-tablet leading-8 font-semibold tracking-wide text-black md:mb-10 md:text-hero-title-desktop">
                 Контактная <span class="text-brand">информация</span>
             </h2>
 
@@ -53,7 +53,7 @@ onUnmounted(() => {
                 </div>
 
                 <!-- Контактная информация (правая часть) -->
-                <div class="mx-auto xl:mx-0 xl:w-[40%]">
+                <div class="mx-auto xl:mx-0 xl:w-2/5">
                     <ContactDetails />
                 </div>
             </div>
@@ -74,7 +74,7 @@ onUnmounted(() => {
                 </svg>
             </button>
             <!-- ContactMap in zoomed state -->
-            <ContactMap class="h-full w-full" />
+            <ContactMap expanded class="h-full w-full" />
         </div>
     </div>
 </template>

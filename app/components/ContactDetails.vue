@@ -8,10 +8,10 @@ const assetPath = usePublicAsset();
         <!-- Адреса -->
         <div class="mb-4 flex gap-3">
             <h2 class="font-medium tracking-wide text-neutral-900">Адреса</h2>
-            <a href="#"
+            <span
                 class="block h-8.5 rounded-lg border border-dashed border-brand px-5 py-1.5 text-center text-3.25 leading-5.5 font-medium whitespace-nowrap text-brand">
                 Центральный офис
-            </a>
+            </span>
         </div>
 
         <!-- Контакты и номера телефонов -->
@@ -53,7 +53,7 @@ const assetPath = usePublicAsset();
         <div class="mb-6">
             <h3 class="mb-2 font-medium text-neutral-900">Адрес:</h3>
             <p class="text-neutral-700">
-                Респ.&nbsp;Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, помещ.&nbsp;№&nbsp;2к
+                Респ.&nbsp;Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, офис&nbsp;2
             </p>
         </div>
 

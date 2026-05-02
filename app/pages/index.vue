@@ -34,7 +34,7 @@ useHead({
                 email: "svai12@inbox.ru",
                 address: {
                     "@type": "PostalAddress",
-                    streetAddress: "ул. Красноармейская слобода, дом 44, помещ. № 2к",
+                    streetAddress: "ул. Красноармейская слобода, дом 44, офис 2",
                     addressLocality: "Йошкар-Ола",
                     addressRegion: "Республика Марий Эл",
                     addressCountry: "RU",

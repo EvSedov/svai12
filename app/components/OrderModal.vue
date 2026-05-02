@@ -133,6 +133,20 @@ const handlePhoneInput = (event: Event) => {
     form.phoneNumber = formatted;
 };
 
+const handleFieldFocus = (event: FocusEvent) => {
+    const target = event.target as HTMLElement | null;
+    if (!import.meta.client || !target) {
+        return;
+    }
+
+    window.setTimeout(() => {
+        target.scrollIntoView({
+            block: "center",
+            behavior: "smooth",
+        });
+    }, 250);
+};
+
 const handleFileChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
     selectedFile.value = target.files?.[0] ?? null;
@@ -337,14 +351,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div v-if="modelValue" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+    <div v-if="modelValue" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-0 sm:p-4"
         @click.self="closeModal">
         <!-- Modal Content -->
-        <div class="flex max-h-[calc(100vh-2rem)] w-full max-w-276 flex-col rounded-3xl bg-white shadow-lg">
+        <div
+            class="flex h-dvh w-screen flex-col bg-white shadow-lg sm:h-auto sm:max-h-[calc(100vh-2rem)] sm:w-full sm:max-w-276 sm:rounded-3xl">
             <!-- Modal Header -->
             <div
-                class="flex shrink-0 items-center justify-between px-4 py-4 md:px-8 md:py-8 lg:py-12 lg:pl-16 xl:py-16 xl:pl-35">
-                <h2 class="text-6 leading-[1.16em] font-normal text-black sm:text-8">
+                class="sticky top-0 z-20 flex shrink-0 items-center justify-between border-b border-black/5 bg-white px-4 py-4 md:px-8 md:py-6 lg:static lg:border-b-0 lg:py-8 lg:pl-16 xl:py-10 xl:pl-35">
+                <h2 class="font-montserrat text-[28px] leading-[1.1] font-semibold tracking-[0.02em] text-content-primary sm:text-[32px]">
                     Сделать заказ
                 </h2>
                 <button @click="closeModal" class="shrink-0 p-2 text-black hover:scale-120 hover:text-gray-700">
@@ -357,33 +372,16 @@ onUnmounted(() => {
             </div>
 
             <!-- Container for Left and Right Columns -->
-            <div class="flex min-h-0 grow flex-col lg:flex-row-reverse">
-                <!-- Right Column (Discount Info) -->
-                <div class="w-full shrink-0 px-4 py-4 md:px-8 lg:w-1/3 lg:min-w-62 lg:pt-16 lg:pr-16 lg:pl-6 xl:pr-35">
-                    <div class="rounded-2xl bg-brand-light px-4 py-4">
-                        <p class="text-3.5 leading-normal font-semibold tracking-[0.08em] text-brand uppercase">
-                            Скидка
-                        </p>
-                        <p class="mt-2 text-5 leading-[1.4] font-normal text-black/80">
-                            Скидка 5% при заказе от 200000 руб.
-                        </p>
-                    </div>
-                </div>
-
+            <div class="flex min-h-0 grow flex-col lg:flex-row">
                 <!-- Left Column (Form and Footer) -->
                 <div
-                    class="flex min-h-0 w-full grow flex-col px-4 py-4 md:px-8 md:py-8 lg:w-2/3 lg:py-12 lg:pl-16 xl:py-16 xl:pl-35">
+                    class="order-1 flex min-h-0 w-full grow flex-col px-4 py-4 md:px-8 md:py-8 lg:w-2/3 lg:pt-0 lg:pb-8 lg:pl-16 xl:pt-0 xl:pb-10 xl:pl-35">
                     <!-- Modal Body (Form) -->
-                    <div class="flex min-h-0 grow flex-col gap-6 overflow-y-auto px-2.5 pb-8">
+                    <div class="flex min-h-0 grow flex-col gap-5 overflow-y-auto px-2.5 pb-6 md:gap-6 md:pb-8">
                         <div class="hidden" aria-hidden="true">
                             <label for="website-field">Website</label>
-                            <input
-                                id="website-field"
-                                type="text"
-                                tabindex="-1"
-                                autocomplete="off"
-                                v-model="form.website"
-                            />
+                            <input id="website-field" type="text" tabindex="-1" autocomplete="off"
+                                v-model="form.website" />
                         </div>
 
                         <!-- ФИО -->
@@ -396,7 +394,7 @@ onUnmounted(() => {
                                 validationErrors.fullName
                                     ? 'ring-2 ring-red-500 focus:ring-red-500'
                                     : 'focus:ring-blue-500',
-                            ]" v-model="form.fullName" />
+                            ]" v-model="form.fullName" @focus="handleFieldFocus" />
                             <p v-if="validationErrors.fullName" class="mt-1 text-sm text-red-500">
                                 {{ validationErrors.fullName }}
                             </p>
@@ -412,7 +410,7 @@ onUnmounted(() => {
                                 validationErrors.phoneNumber
                                     ? 'ring-2 ring-red-500 focus:ring-red-500'
                                     : 'focus:ring-blue-500',
-                            ]" v-model="form.phoneNumber" @input="handlePhoneInput" />
+                            ]" v-model="form.phoneNumber" @input="handlePhoneInput" @focus="handleFieldFocus" />
                             <p v-if="validationErrors.phoneNumber" class="mt-1 text-sm text-red-500">
                                 {{ validationErrors.phoneNumber }}
                             </p>
@@ -429,7 +427,7 @@ onUnmounted(() => {
                                     validationErrors.selectedService
                                         ? 'ring-2 ring-red-500 focus:ring-red-500'
                                         : 'focus:ring-blue-500',
-                                ]" v-model="form.selectedService">
+                                ]" v-model="form.selectedService" @focus="handleFieldFocus">
                                     <option value="" disabled>
                                         Какой тип строения Вам нужен?
                                     </option>
@@ -461,7 +459,7 @@ onUnmounted(() => {
                             </h3>
                             <input type="text" placeholder="Введите адрес"
                                 class="w-full rounded-xl bg-input-fill px-4 py-3 text-4 leading-normal text-text-soft placeholder:text-text-soft outline-none focus:ring-2 focus:ring-blue-500"
-                                v-model="form.address" />
+                                v-model="form.address" @focus="handleFieldFocus" />
                         </div>
 
                         <!-- Описание -->
@@ -474,7 +472,7 @@ onUnmounted(() => {
                                 validationErrors.description
                                     ? 'ring-2 ring-red-500 focus:ring-red-500'
                                     : 'focus:ring-blue-500',
-                            ]" v-model="form.description" />
+                            ]" v-model="form.description" @focus="handleFieldFocus" />
                             <p v-if="validationErrors.description" class="mt-1 text-sm text-red-500">
                                 {{ validationErrors.description }}
                             </p>
@@ -487,8 +485,8 @@ onUnmounted(() => {
                                 его
                                 <span class="text-text-soft">(по желанию)</span>
                             </p>
-                            <input ref="fileInputRef" type="file" class="hidden"
-                                accept=".pdf,.jpg,.jpeg,.png,.webp" @change="handleFileChange" />
+                            <input ref="fileInputRef" type="file" class="hidden" accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                @change="handleFileChange" />
                             <button type="button" @click="triggerFileInput"
                                 class="flex h-24 w-24 flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-brand bg-transparent text-brand transition-colors hover:bg-brand-light">
                                 <img :src="assetPath('/icons/file-arrow-up.svg')" alt="" class="h-8 w-8" />
@@ -516,8 +514,9 @@ onUnmounted(() => {
 
                     <!-- Footer -->
                     <div
-                        class="flex shrink-0 flex-col items-start justify-between gap-4 pt-8 md:flex-row md:items-center">
-                        <p class="w-full text-3.25 leading-[1.53em] font-normal text-text-faint md:w-2/3">
+                        class="sticky bottom-0 flex shrink-0 flex-col items-start justify-between gap-4 border-t border-black/5 bg-white px-2.5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:flex-row md:items-center md:pt-6">
+                        <p
+                            class="w-full text-[12px] leading-[1.3] font-normal text-text-faint md:w-2/3 md:text-3.25 md:leading-[1.53em]">
                             Заполняя форму, я принимаю
                             <a :href="assetPath('/docs/Оферта.pdf')" download="Оферта.pdf" target="_blank"
                                 class="text-brand">
@@ -552,6 +551,20 @@ onUnmounted(() => {
                                 <span v-else>Сделать заказ</span>
                             </button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Discount Info) -->
+                <div
+                    class="order-2 w-full shrink-0 px-4 pt-0 pb-4 md:px-8 lg:w-1/3 lg:min-w-62 lg:pr-16 lg:pl-6 xl:pr-35">
+                    <div class="rounded-2xl bg-brand-light px-4 py-4">
+                        <p
+                            class="text-[12px] leading-[1.2] font-semibold tracking-hero-cta-primary text-brand uppercase md:text-3.5 md:leading-normal">
+                            Скидка
+                        </p>
+                        <p class="mt-2 text-[12px] leading-[1.3] font-normal text-black/80 md:text-5 md:leading-[1.4]">
+                            Скидка 5% при заказе от 200000 руб.
+                        </p>
                     </div>
                 </div>
             </div>

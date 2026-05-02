@@ -9,7 +9,7 @@ useHead({ title: 'Контакты — Свай12' })
             <li><a href="tel:+79933881308" class="hover:text-brand">+7 (993) 388-13-08</a></li>
             <li><a href="tel:+79933881308" class="hover:text-brand">+7 (993) 388-13-08</a></li>
             <li><a href="mailto:svai12@inbox.ru" class="hover:text-brand">svai12@inbox.ru</a></li>
-            <li>Респ. Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, помещ.&nbsp;№&nbsp;2к</li>
+            <li>Респ. Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, офис&nbsp;2</li>
         </ul>
     </div>
 </template>

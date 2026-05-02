@@ -82,7 +82,7 @@ const handleInfoClick = async (event: Event) => {
                     </li>
                     <li class="text-sm leading-relaxed font-normal text-content-primary">
                         <span class="block max-w-73 leading-relaxed">
-                            Респ. Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, помещ.&nbsp;№&nbsp;2к
+                            Респ. Марий Эл, г.&nbsp;Йошкар-Ола, ул.&nbsp;Красноармейская слобода, дом&nbsp;44, офис&nbsp;2
                         </span>
                     </li>
                     <li class="pt-3">

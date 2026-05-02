@@ -106,25 +106,6 @@ const closeModal = () => {
     emit("update:modelValue", false);
 };
 
-const completedFieldsCount = computed(() => {
-    let count = 0;
-    if (form.fullName.trim() !== "") count++;
-    if (form.selectedService !== "") count++;
-    if (form.phoneNumber.trim() !== "") count++;
-    if (form.address.trim() !== "") count++;
-    if (form.description.trim() !== "") count++;
-    if (selectedFile.value !== null) count++;
-    return count;
-});
-
-const discountPercentage = computed(() => {
-    return completedFieldsCount.value * 2;
-});
-
-const progressBarWidth = computed(() => {
-    return Math.min(Math.round((completedFieldsCount.value / 6) * 100), 100);
-});
-
 const validateFormData = () => {
     const formData = {
         fullName: form.fullName,
@@ -282,7 +263,7 @@ const handleSubmitOrder = async () => {
     }
 
     clearFormError();
-    form.discount = discountPercentage.value;
+    form.discount = 0;
 
     isLoading.value = true;
     try {
@@ -377,22 +358,16 @@ onUnmounted(() => {
 
             <!-- Container for Left and Right Columns -->
             <div class="flex min-h-0 grow flex-col lg:flex-row-reverse">
-                <!-- Right Column (Progress Bar) -->
+                <!-- Right Column (Discount Info) -->
                 <div class="w-full shrink-0 px-4 py-4 md:px-8 lg:w-1/3 lg:min-w-62 lg:pt-16 lg:pr-16 lg:pl-6 xl:pr-35">
-                    <div class="mb-4">
-                        <h3 class="text-3.5 leading-normal font-normal text-text-soft">
-                            Шкала заполнения формы:
-                        </h3>
-                        <p class="text-5.25 leading-[1.33em] font-normal text-black/80">
-                            {{ discountPercentage }}%
+                    <div class="rounded-2xl bg-brand-light px-4 py-4">
+                        <p class="text-3.5 leading-normal font-semibold tracking-[0.08em] text-brand uppercase">
+                            Скидка
+                        </p>
+                        <p class="mt-2 text-5 leading-[1.4] font-normal text-black/80">
+                            Скидка 5% при заказе от 200000 руб.
                         </p>
                     </div>
-                    <div class="mb-2 h-2 w-full max-w-51 rounded-md bg-surface-muted">
-                        <div class="h-2 rounded-md bg-brand" :style="{ width: progressBarWidth + '%' }"></div>
-                    </div>
-                    <p class="text-3.5 leading-normal font-normal text-text-soft">
-                        +2% за каждый пункт
-                    </p>
                 </div>
 
                 <!-- Left Column (Form and Footer) -->

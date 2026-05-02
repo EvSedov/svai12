@@ -1,49 +1,48 @@
 import {
+    createError,
     defineEventHandler,
-    readBody,
+    getRequestHeader,
+    readFormData,
     setResponseStatus,
 } from "h3";
 
-interface SubmitOrderBody {
-    fullName?: string;
-    selectedService?: string;
-    phoneNumber?: string;
-    description?: string;
-    quantity?: number | null;
-    agree?: boolean;
-    discount?: number;
-}
-
-// Temporary mock endpoint for local/frontend development until the real backend exists.
 export default defineEventHandler(async (event) => {
-    const body = await readBody<SubmitOrderBody>(event);
+    const runtimeConfig = useRuntimeConfig(event);
+    const submitUrl = runtimeConfig.ordersSubmitUrl;
 
-    if (!body?.fullName || !body?.phoneNumber || !body?.selectedService) {
-        setResponseStatus(event, 400);
-        return {
-            errors: {
-                fullName: !body?.fullName ? "Укажите имя" : undefined,
-                selectedService: !body?.selectedService
-                    ? "Выберите услугу"
-                    : undefined,
-                phoneNumber: !body?.phoneNumber
-                    ? "Укажите телефон"
-                    : undefined,
-            },
-        };
+    if (!submitUrl) {
+        throw createError({
+            statusCode: 500,
+            statusMessage: "NUXT_ORDERS_SUBMIT_URL is not configured",
+        });
+    }
+
+    const formData = await readFormData(event);
+    const forwardedFor =
+        getRequestHeader(event, "x-forwarded-for") ??
+        event.node.req.socket.remoteAddress ??
+        "";
+    const userAgent = getRequestHeader(event, "user-agent") ?? "";
+
+    const response = await fetch(submitUrl, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "X-Forwarded-For": forwardedFor,
+            "User-Agent": userAgent,
+        },
+        body: formData,
+    });
+
+    setResponseStatus(event, response.status, response.statusText);
+
+    const contentType = response.headers.get("content-type") ?? "";
+
+    if (contentType.includes("application/json")) {
+        return await response.json();
     }
 
     return {
-        ok: true,
-        message: "Mock order accepted",
-        order: {
-            fullName: body.fullName,
-            selectedService: body.selectedService,
-            phoneNumber: body.phoneNumber,
-            description: body.description ?? "",
-            quantity: body.quantity ?? null,
-            agree: Boolean(body.agree),
-            discount: body.discount ?? 0,
-        },
+        message: await response.text(),
     };
 });

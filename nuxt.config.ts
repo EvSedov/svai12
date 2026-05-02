@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   runtimeConfig: {
+    ordersSubmitUrl: env?.NUXT_ORDERS_SUBMIT_URL || '',
     public: {
       turnstileSiteKey: env?.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
     },

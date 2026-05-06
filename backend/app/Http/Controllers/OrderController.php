@@ -29,7 +29,6 @@ class OrderController extends Controller
             'phoneNumber'     => 'required|string|max:255',
             'address'         => 'required|string|max:255',
             'description'     => 'nullable|string',
-            'discount'        => 'nullable|numeric',
             'website'         => 'nullable|string|max:0',
             'formStartedAt'   => 'required|integer',
             'cf-turnstile-response' => 'nullable|string|max:2048',
@@ -143,7 +142,6 @@ class OrderController extends Controller
                 $validated['phoneNumber'],
                 $validated['address'],
                 $validated['description'] ?? '',
-                $validated['discount'] ?? null,
                 $uploadedFile
             ));
 

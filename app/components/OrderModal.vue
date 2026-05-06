@@ -57,9 +57,9 @@ const form = reactive({
     phoneNumber: "",
     address: "",
     description: "",
+    // Honeypot-поле для антиспама: реальный пользователь его не заполняет.
     website: "",
     formStartedAt: Date.now(),
-    discount: 0,
 });
 
 const clearFormError = () => {
@@ -94,7 +94,6 @@ const resetForm = () => {
     form.description = "";
     form.website = "";
     form.formStartedAt = Date.now();
-    form.discount = 0;
     selectedFile.value = null;
     turnstileToken.value = "";
 };
@@ -277,8 +276,6 @@ const handleSubmitOrder = async () => {
     }
 
     clearFormError();
-    form.discount = 0;
-
     isLoading.value = true;
     try {
         const formData = new FormData();
@@ -289,7 +286,6 @@ const handleSubmitOrder = async () => {
         formData.append("description", form.description);
         formData.append("website", form.website);
         formData.append("formStartedAt", String(form.formStartedAt));
-        formData.append("discount", String(form.discount));
         formData.append("cf-turnstile-response", turnstileToken.value);
         if (selectedFile.value) {
             formData.append("file", selectedFile.value);

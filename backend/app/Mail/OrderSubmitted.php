@@ -18,7 +18,6 @@ class OrderSubmitted extends Mailable
     public string $phoneNumber;
     public string $address;
     public string $description;
-    public ?float $discount;
     public ?UploadedFile $uploadedFile;
 
     public function __construct(
@@ -27,7 +26,6 @@ class OrderSubmitted extends Mailable
         string $phoneNumber,
         string $address,
         string $description,
-        ?float $discount,
         ?UploadedFile $uploadedFile
     ) {
         $this->fullName        = $fullName;
@@ -35,7 +33,6 @@ class OrderSubmitted extends Mailable
         $this->phoneNumber     = $phoneNumber;
         $this->address         = $address;
         $this->description     = $description;
-        $this->discount        = $discount;
         $this->uploadedFile    = $uploadedFile;
     }
 
@@ -56,7 +53,6 @@ class OrderSubmitted extends Mailable
                 'phoneNumber'     => $this->phoneNumber,
                 'address'         => $this->address,
                 'description'     => $this->description,
-                'discount'        => $this->discount,
                 'fileName'        => $this->uploadedFile?->getClientOriginalName(),
             ],
         );

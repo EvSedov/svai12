@@ -45,8 +45,8 @@ const assetPath = usePublicAsset();
         <!-- Время работы -->
         <div class="mb-4">
             <h3 class="mb-2 font-medium text-neutral-900">Время работы:</h3>
-            <p class="text-neutral-700">Пн - Пт: 11:00 - 22:00.</p>
-            <p class="text-neutral-700">Сб, Вс: По договоренности!</p>
+            <p class="text-neutral-700">Пн - Пт: 09:00 - 18:00.</p>
+            <p class="text-neutral-700">Сб, Вс: выходной.</p>
         </div>
 
         <!-- Адрес -->

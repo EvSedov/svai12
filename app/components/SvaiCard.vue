@@ -41,6 +41,14 @@ const props = withDefaults(defineProps<Props>(), {
 defineEmits<{
     order: [];
 }>();
+
+const formatFromPrice = (price: string) => {
+    const normalized = price.replace(" руб.", "\u00A0руб.");
+
+    return normalized.startsWith("от ") || normalized === "по запросу"
+        ? normalized
+        : `от ${normalized}`;
+};
 </script>
 
 <template>
@@ -87,13 +95,13 @@ defineEmits<{
                 <div
                     v-for="row in props.priceRows"
                     :key="row.length"
-                    class="flex items-center justify-between gap-2 rounded-xl bg-bg-main px-2.5 py-2"
+                    class="flex items-center justify-between gap-1.5 rounded-xl bg-bg-main px-2 py-2"
                 >
-                    <span class="whitespace-nowrap text-4 leading-none font-medium tracking-[0.01em] text-content-primary">
+                    <span class="whitespace-nowrap text-product-price-row font-medium tracking-normal text-content-primary">
                         {{ row.length }}&nbsp;мм
                     </span>
-                    <span class="whitespace-nowrap text-right text-4 leading-none font-semibold tracking-[0.01em] text-brand">
-                        {{ row.price.replace(" руб.", "\u00A0руб.") }}
+                    <span class="whitespace-nowrap text-right text-product-price-row font-semibold tracking-normal text-brand">
+                        {{ formatFromPrice(row.price) }}
                     </span>
                 </div>
             </div>
@@ -120,7 +128,7 @@ defineEmits<{
                     {{ props.basePriceLabel }}
                 </span>
                 <span class="text-right text-8 leading-none font-semibold tracking-[0.02em] text-black/75">
-                    {{ props.basePrice }}
+                    {{ formatFromPrice(props.basePrice) }}
                 </span>
             </div>
 
@@ -129,7 +137,7 @@ defineEmits<{
                     {{ props.installPriceLabel }}
                 </span>
                 <span class="text-right text-8 leading-none font-semibold tracking-[0.02em] text-brand">
-                    {{ props.installPrice }}
+                    {{ formatFromPrice(props.installPrice) }}
                 </span>
             </div>
         </div>
@@ -150,7 +158,7 @@ defineEmits<{
 
                 <div v-if="props.capPrices?.length" class="space-y-1 pt-1">
                     <p v-for="cap in props.capPrices" :key="cap.size">
-                        <span class="font-semibold">{{ cap.size }}</span> — {{ cap.price.replace(" руб.", "\u00A0руб.") }}
+                        <span class="font-semibold">{{ cap.size }}</span> — {{ formatFromPrice(cap.price) }}
                     </p>
                 </div>
 

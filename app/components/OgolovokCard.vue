@@ -24,6 +24,14 @@ const props = withDefaults(defineProps<Props>(), {
 defineEmits<{
     order: [];
 }>();
+
+const formatFromPrice = (price: string) => {
+    const normalized = price.replace(" руб.", "\u00A0руб.");
+
+    return normalized.startsWith("от ") || normalized === "по запросу"
+        ? normalized
+        : `от ${normalized}`;
+};
 </script>
 
 <template>
@@ -66,7 +74,7 @@ defineEmits<{
         </p>
 
         <p class="mb-5 mt-auto text-9 leading-none font-semibold tracking-[0.02em] text-black/75">
-            {{ props.price }}
+            {{ formatFromPrice(props.price) }}
         </p>
 
         <Button

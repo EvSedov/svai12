@@ -148,6 +148,8 @@
   --text-hero-or-tablet--line-height: 1;
   --text-hero-or-desktop: 18px;
   --text-hero-or-desktop--line-height: 1;
+  --text-product-price-row: 15px;
+  --text-product-price-row--line-height: 1;
   --tracking-hero-cta-primary: 0.08em;
   --tracking-hero-cta-secondary: 0.03em;
   --radius-hero-cta: 12px;

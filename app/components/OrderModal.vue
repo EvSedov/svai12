@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const assetPath = usePublicAsset();
+const config = useRuntimeConfig();
 
 import { watch, onUnmounted, onMounted, computed, ref, reactive, nextTick } from "vue";
 import { useErrorHandler } from "@/composables/useErrorHandler";
@@ -291,7 +292,7 @@ const handleSubmitOrder = async () => {
             formData.append("file", selectedFile.value);
         }
 
-        const response = await fetch("/submit-order", {
+        const response = await fetch(config.public.ordersSubmitUrl, {
             method: "POST",
             body: formData,
         });

@@ -7,8 +7,8 @@ return [
 
     'allowed_origins' => [
         env('FRONTEND_URL', 'http://localhost:3000'),
-        'https://svai12.рф',
-        'https://www.svai12.рф',
+        'https://svai12.ru',
+        'https://www.svai12.ru',
     ],
 
     'allowed_origins_patterns' => [],

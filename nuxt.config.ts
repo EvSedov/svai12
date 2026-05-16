@@ -7,8 +7,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   runtimeConfig: {
-    ordersSubmitUrl: env?.NUXT_ORDERS_SUBMIT_URL || '',
     public: {
+      ordersSubmitUrl: env?.NUXT_ORDERS_SUBMIT_URL || '',
       turnstileSiteKey: env?.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '',
     },
   },
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      titleTemplate: '%s | СВАИ+',
+      titleTemplate: '%s | Сваи+',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
